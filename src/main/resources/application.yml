@@ -1,10 +1,10 @@
 spring:
   application:
-    name: sopfc
+    name: HyperBrain-be
   datasource:
-    url: jdbc:postgresql://localhost:5432/sopfc
-    username: user
-    password: password
+    url: jdbc:postgresql://${DB_HOST:postgres-service}:5432/sopfc
+    username: ${DB_USER:user}
+    password: ${DB_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
   flyway:
     baseline-on-migrate: true
