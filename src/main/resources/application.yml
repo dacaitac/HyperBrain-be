@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: sopfc
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sopfc
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    baseline-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: update # Solo para el inicio, luego usaríamos Flyway/Liquibase
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+notion:
+  token: ${NOTION_TOKEN}
+  version: "2022-06-28"
+  database-ids:
+    tasks: ${NOTION_TASKS_DB_ID}
+
+apple:
+  sentinel:
+    url: ${APPLE_SENTINEL_URL:http://127.0.0.1:1995}
+
+server:
+  port: 8080

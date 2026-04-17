@@ -1,0 +1,50 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Log Configured Secrets (Names Only)
+        run: |
+          echo "Verificando configuración de secretos:"
+          [ -n "${{ secrets.DOCKER_USERNAME }}" ] && echo "- DOCKER_USERNAME: Configurado" || echo "- DOCKER_USERNAME: FALTANTE"
+          [ -n "${{ secrets.DOCKER_PASSWORD }}" ] && echo "- DOCKER_PASSWORD: Configurado" || echo "- DOCKER_PASSWORD: FALTANTE"
+          [ -n "${{ secrets.TAILSCALE_AUTHKEY }}" ] && echo "- TAILSCALE_AUTHKEY: Configurado" || echo "- TAILSCALE_AUTHKEY: FALTANTE"
+          [ -n "${{ secrets.KUBECONFIG_DATA }}" ] && echo "- KUBECONFIG_DATA: Configurado" || echo "- KUBECONFIG_DATA: FALTANTE"
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            dacaitac/hyperbrain-be:${{ github.sha }}
+            dacaitac/hyperbrain-be:latest
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          tags: tag:ci
+
+      - name: Deploy to Kubernetes
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > ~/.kube/config
+          chmod 600 ~/.kube/config
+          kubectl set image deployment/backend-deployment backend-container=dacaitac/hyperbrain-be:${{ github.sha }} -n hyperbrain
+          kubectl rollout status deployment/backend-deployment -n hyperbrain --timeout=120s
