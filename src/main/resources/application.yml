@@ -2,15 +2,16 @@ spring:
   application:
     name: HyperBrain-be
   datasource:
-    url: jdbc:postgresql://${DB_HOST:postgres-service}:5432/sopfc
-    username: ${DB_USER:user}
-    password: ${DB_PASSWORD:password}
+    url: jdbc:postgresql://localhost:5432/sopfc
+    username: user
+    password: password
     driver-class-name: org.postgresql.Driver
   flyway:
     baseline-on-migrate: true
+    enabled: true
   jpa:
     hibernate:
-      ddl-auto: update # Solo para el inicio, luego usaríamos Flyway/Liquibase
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -18,14 +19,19 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 notion:
-  token: ${NOTION_TOKEN}
+  token: ${NOTION_TOKEN:dummy-token}
   version: "2022-06-28"
   database-ids:
-    tasks: ${NOTION_TASKS_DB_ID}
+    tasks: ${NOTION_TASKS_DB_ID:dummy-db-id}
 
 apple:
   sentinel:
     url: ${APPLE_SENTINEL_URL:http://127.0.0.1:1995}
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.hyperbrain.sopfc.sync: INFO
 
 server:
   port: 8080

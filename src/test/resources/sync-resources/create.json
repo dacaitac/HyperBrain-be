@@ -1,0 +1,257 @@
+{
+  "source" : {
+    "type" : "automation",
+    "automation_id" : "2ec8bc9c-5d91-80d1-a44c-004defea283c",
+    "action_id" : "2ec8bc9c-5d91-8048-b8bc-005a55894e00",
+    "event_id" : "4b65a171-1bb2-41d8-807d-fb4484332b35",
+    "attempt" : 1
+  },
+  "data" : {
+    "object" : "page",
+    "id" : "3498bc9c-5d91-8040-a274-c20b4de3bfa4",
+    "created_time" : "2026-04-21T05:07:00.000Z",
+    "last_edited_time" : "2026-04-21T05:07:00.000Z",
+    "created_by" : {
+      "object" : "user",
+      "id" : "11dd872b-594c-8166-b6ca-000262dc2b0a"
+    },
+    "last_edited_by" : {
+      "object" : "user",
+      "id" : "11dd872b-594c-8166-b6ca-000262dc2b0a"
+    },
+    "cover" : null,
+    "icon" : null,
+    "parent" : {
+      "type" : "data_source_id",
+      "data_source_id" : "1bf8bc9c-5d91-8171-b7ea-000b7e326082",
+      "database_id" : "1bf8bc9c-5d91-812b-8c97-e5e6450858aa"
+    },
+    "in_trash" : false,
+    "is_archived" : false,
+    "is_locked" : false,
+    "properties" : {
+      "Description" : {
+        "id" : "%3D%60hR",
+        "type" : "rich_text",
+        "rich_text" : [ ]
+      },
+      "Created time" : {
+        "id" : "%3Ez%5CP",
+        "type" : "created_time",
+        "created_time" : "2026-04-21T05:07:00.000Z"
+      },
+      "Subtasks" : {
+        "id" : "%3FsMg",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Progress" : {
+        "id" : "AfDm",
+        "type" : "formula",
+        "formula" : {
+          "type" : "number",
+          "number" : 0
+        }
+      },
+      "Sub-item" : {
+        "id" : "DY%3Dn",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Date" : {
+        "id" : "Dfqq",
+        "type" : "date",
+        "date" : null
+      },
+      "Cycle" : {
+        "id" : "FG~F",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Pivot of" : {
+        "id" : "I%3CG~",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Parent Task" : {
+        "id" : "JQub",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "URL" : {
+        "id" : "Lv%60W",
+        "type" : "url",
+        "url" : null
+      },
+      "Gasto" : {
+        "id" : "QbbX",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Time Block" : {
+        "id" : "St~A",
+        "type" : "select",
+        "select" : null
+      },
+      "Est. Min" : {
+        "id" : "VAbC",
+        "type" : "number",
+        "number" : null
+      },
+      "Order" : {
+        "id" : "VYJU",
+        "type" : "number",
+        "number" : null
+      },
+      "Next Task" : {
+        "id" : "WRFA",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Range Duration (min)" : {
+        "id" : "WTke",
+        "type" : "select",
+        "select" : null
+      },
+      "Frequency" : {
+        "id" : "%5ESx%7D",
+        "type" : "number",
+        "number" : null
+      },
+      "Important" : {
+        "id" : "ax%7BO",
+        "type" : "checkbox",
+        "checkbox" : false
+      },
+      "Energy" : {
+        "id" : "ib%3Du",
+        "type" : "select",
+        "select" : null
+      },
+      "Area" : {
+        "id" : "i~n%3F",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Effort" : {
+        "id" : "jIEm",
+        "type" : "formula",
+        "formula" : {
+          "type" : "number",
+          "number" : 1
+        }
+      },
+      "Parent item" : {
+        "id" : "k%7Bvd",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Costo" : {
+        "id" : "nMsl",
+        "type" : "formula",
+        "formula" : {
+          "type" : "number",
+          "number" : 0
+        }
+      },
+      "Blocked by" : {
+        "id" : "qYiX",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Complete" : {
+        "id" : "uF%3Ba",
+        "type" : "checkbox",
+        "checkbox" : false
+      },
+      "Status" : {
+        "id" : "wgH~",
+        "type" : "status",
+        "status" : {
+          "id" : "f82b6a62-7676-43f4-873f-c3cad10792b7",
+          "name" : "Not started",
+          "color" : "purple"
+        }
+      },
+      "Type" : {
+        "id" : "w%7DLx",
+        "type" : "select",
+        "select" : null
+      },
+      "Priority Score" : {
+        "id" : "zclm",
+        "type" : "formula",
+        "formula" : {
+          "type" : "number",
+          "number" : 1
+        }
+      },
+      "Total Estimate Duration" : {
+        "id" : "%7DP%3Cz",
+        "type" : "formula",
+        "formula" : {
+          "type" : "number",
+          "number" : 15
+        }
+      },
+      "Urgence" : {
+        "id" : "~%3AN%3A",
+        "type" : "formula",
+        "formula" : {
+          "type" : "number",
+          "number" : 1
+        }
+      },
+      "Resources" : {
+        "id" : "~%3EvW",
+        "type" : "relation",
+        "relation" : [ ],
+        "has_more" : false
+      },
+      "Impact" : {
+        "id" : "~aG%5B",
+        "type" : "select",
+        "select" : null
+      },
+      "Name" : {
+        "id" : "title",
+        "type" : "title",
+        "title" : [ {
+          "type" : "text",
+          "text" : {
+            "content" : "444.",
+            "link" : null
+          },
+          "annotations" : {
+            "bold" : false,
+            "italic" : false,
+            "strikethrough" : false,
+            "underline" : false,
+            "code" : false,
+            "color" : "default"
+          },
+          "plain_text" : "444.",
+          "href" : null
+        } ]
+      },
+      "Mental Load" : {
+        "id" : "notion%3A%2F%2Ftasks%2Festimates_property",
+        "type" : "select",
+        "select" : null
+      }
+    },
+    "url" : "https://www.notion.so/444-3498bc9c5d918040a274c20b4de3bfa4",
+    "public_url" : null,
+    "request_id" : "6391d99b-a33a-4a6d-9beb-ac7beeaafe92"
+  }
+}

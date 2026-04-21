@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-service:5432/sopfc
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+apple:
+  sentinel:
+    # URL de tu Mac Mini en la VPN de Tailscale
+    url: https://mac-mini-de-daniel.tail95d990.ts.net
+
+logging:
+  level:
+    com.hyperbrain.sopfc: INFO
+    org.springframework.web: WARN

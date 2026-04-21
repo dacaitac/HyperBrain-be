@@ -1,5 +1,10 @@
+-- Create schemas
+CREATE SCHEMA IF NOT EXISTS core;
+CREATE SCHEMA IF NOT EXISTS sync;
+CREATE SCHEMA IF NOT EXISTS common;
+
 -- Create core tables
-CREATE TABLE core_executable (
+CREATE TABLE core.core_executable (
     id UUID PRIMARY KEY,
     tenant_id UUID NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -8,16 +13,16 @@ CREATE TABLE core_executable (
     priority_score DOUBLE PRECISION
 );
 
-CREATE TABLE core_execution_profile (
-    executable_id UUID PRIMARY KEY REFERENCES core_executable(id),
+CREATE TABLE core.core_execution_profile (
+    executable_id UUID PRIMARY KEY REFERENCES core.core_executable(id),
     tenant_id UUID NOT NULL,
     estimated_minutes INTEGER,
     energy_drain INTEGER,
     mental_load INTEGER
 );
 
--- Create Outbox table
-CREATE TABLE outbox_events (
+-- Create Outbox table in common schema
+CREATE TABLE common.outbox_events (
     id UUID PRIMARY KEY,
     tenant_id UUID NOT NULL,
     aggregate_type VARCHAR(255) NOT NULL,
@@ -29,17 +34,16 @@ CREATE TABLE outbox_events (
 );
 
 -- Enable RLS on all tables
-ALTER TABLE core_executable ENABLE ROW LEVEL SECURITY;
-ALTER TABLE core_execution_profile ENABLE ROW LEVEL SECURITY;
-ALTER TABLE outbox_events ENABLE ROW LEVEL SECURITY;
+ALTER TABLE core.core_executable ENABLE ROW LEVEL SECURITY;
+ALTER TABLE core.core_execution_profile ENABLE ROW LEVEL SECURITY;
+ALTER TABLE common.outbox_events ENABLE ROW LEVEL SECURITY;
 
 -- Create RLS Policies
--- We assume the application will set 'app.current_tenant' before queries
-CREATE POLICY core_executable_isolation ON core_executable
+CREATE POLICY core_executable_isolation ON core.core_executable
     USING (tenant_id = current_setting('app.current_tenant')::UUID);
 
-CREATE POLICY core_execution_profile_isolation ON core_execution_profile
+CREATE POLICY core_execution_profile_isolation ON core.core_execution_profile
     USING (tenant_id = current_setting('app.current_tenant')::UUID);
 
-CREATE POLICY outbox_events_isolation ON outbox_events
+CREATE POLICY outbox_events_isolation ON common.outbox_events
     USING (tenant_id = current_setting('app.current_tenant')::UUID);
