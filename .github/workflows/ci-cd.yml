@@ -25,6 +25,7 @@ jobs:
     name: Build & Push Docker Image
     needs: validate-and-build
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - uses: actions/checkout@v4
       
@@ -47,6 +48,7 @@ jobs:
     name: Deploy to Production (Daniel-Ubuntu)
     needs: dockerize
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: Execute Deployment via SSH
         uses: appleboy/ssh-action@v1.0.3
