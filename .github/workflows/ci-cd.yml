@@ -61,7 +61,7 @@ jobs:
       - name: Execute Deployment via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: daniel-ubuntu.tail95d990.ts.net
+          host: 100.83.47.113 # IP fija de daniel-ubuntu en la VPN
           username: danielc
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
