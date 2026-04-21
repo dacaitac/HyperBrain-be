@@ -186,6 +186,7 @@
   },
   "active": "890ec86de6e060ff",
   "lastOpenFiles": [
+    "build/test-results 2",
     "src/main/resources/application-prod.yml",
     "build/libs 2",
     "build/lombok 2",
@@ -196,7 +197,6 @@
     "build/resources/main/db/migration/V4__Data_Model_Expansion.sql",
     "build/resources/main/db/migration/V2__Sync_Mappings.sql",
     "build/resources/main/application.yml",
-    "build/libs/HyperBrain-be-0.0.1-SNAPSHOT-plain.jar",
     "README.md",
     "src/main/java/com/hyperbrain/sopfc/planner/GEMINI-planner.md",
     "src/main/java/com/hyperbrain/sopfc/planner/README-planner.md",

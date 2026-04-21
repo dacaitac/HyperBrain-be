@@ -65,8 +65,8 @@ jobs:
           username: danielc
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S kubectl patch deployment backend-deployment -n hyperbrain --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env", "value": [{"name": "SPRING_PROFILES_ACTIVE", "value": "prod"}, {"name": "DB_HOST", "value": "postgres-service"}]}]'
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S kubectl patch deployment backend-deployment -n hyperbrain --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env", "value": [{"name": "SPRING_PROFILES_ACTIVE", "value": "prod"}]}]'
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S kubectl rollout restart deployment/backend-deployment -n hyperbrain
             echo "🚀 Deployment patched and restarted. Waiting for status..."
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S kubectl rollout status deployment/backend -n hyperbrain
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S kubectl rollout status deployment/backend-deployment -n hyperbrain
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S kubectl get pods -n hyperbrain

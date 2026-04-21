@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://postgres-service:5432/sopfc
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: user
+    password: password
   jpa:
     hibernate:
       ddl-auto: validate
