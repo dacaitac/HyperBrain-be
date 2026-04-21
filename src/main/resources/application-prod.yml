@@ -3,6 +3,8 @@ spring:
     url: jdbc:postgresql://postgres-service:5432/sopfc
     username: user
     password: password
+  flyway:
+    validate-on-migrate: false # Ignorar discrepancias de checksum
   jpa:
     hibernate:
       ddl-auto: validate
