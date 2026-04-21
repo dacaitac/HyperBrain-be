@@ -34730,3 +34730,1427 @@ Hibernate:
         not(oee1_0.processed) 
     order by
         oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
+Hibernate: 
+    select
+        oee1_0.id,
+        oee1_0.aggregate_id,
+        oee1_0.aggregate_type,
+        oee1_0.event_type,
+        oee1_0.occurred_at,
+        oee1_0.payload,
+        oee1_0.processed,
+        oee1_0.tenant_id 
+    from
+        common.outbox_events oee1_0 
+    where
+        not(oee1_0.processed) 
+    order by
+        oee1_0.occurred_at
