@@ -2,7 +2,7 @@ spring:
   application:
     name: HyperBrain-be
   datasource:
-    url: jdbc:postgresql://localhost:5432/sopfc
+    url: jdbc:postgresql://${DB_HOST:postgres-service}:5432/sopfc
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
