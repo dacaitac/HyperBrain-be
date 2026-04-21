@@ -19,7 +19,7 @@ jobs:
           cache: 'gradle'
           
       - name: Build with Gradle
-        run: ./gradlew clean build -x test # Saltamos tests que requieren Apple Service real en el Runner de GitHub
+        run: ./gradlew clean build -x test
 
   dockerize:
     name: Build & Push Docker Image
@@ -50,14 +50,22 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Connect to Tailscale VPN
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
       - name: Execute Deployment via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: daniel-ubuntu # Nombre en tu Tailnet o IP
+          host: daniel-ubuntu.tail95d990.ts.net # FQDN completo de la VPN
           username: danielc
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             echo "Hn5n7u9i6n" | sudo -S kubectl rollout restart deployment/backend -n hyperbrain
             echo "🚀 Deployment restarted. Waiting for status..."
-            kubectl rollout status deployment/backend -n hyperbrain
-            kubectl get pods -n hyperbrain
+            echo "Hn5n7u9i6n" | sudo -S kubectl rollout status deployment/backend -n hyperbrain
+            echo "Hn5n7u9i6n" | sudo -S kubectl get pods -n hyperbrain
