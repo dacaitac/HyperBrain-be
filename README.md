@@ -2,127 +2,106 @@
 
 **Arquitectura de Gemelo Digital de Rendimiento (SSOT + EDA)**
 
-## 1. Misión y Propósito
-El SOPFC es un ecosistema diseñado para actuar como la **Fuente Única de Verdad (SSOT)** de la vida operativa de un usuario de alto rendimiento. Su objetivo es orquestar inteligentemente tareas, finanzas, aprendizaje y biometría, minimizando la carga cognitiva y maximizando el retorno de inversión sobre el tiempo (Micro-ROI).
+## 1. Planteamiento del Proyecto y Propósito
 
-## 2. Modelo de Datos Maestro (ERD)
-Este diagrama representa la estructura ósea del sistema, dividida por esquemas lógicos y protegida por RLS.
+El SOPFC actúa como un **gemelo digital de rendimiento**. Su propósito es orquestar de forma inteligente tareas, rutinas, aprendizaje y finanzas, maximizando la ejecución de Metas Crucialmente Importantes (MCI) y minimizando la fricción cognitiva.
+
+El sistema opera bajo una **Arquitectura Headless (EDA)**. Una base de datos SQL actúa como la Fuente Única de Verdad (SSOT), relegando herramientas externas como Notion (panel de control) e iOS (Calendar/Reminders/Shortcuts) a interfaces de captura y ejecución. Cada proyecto se trata como un *Cost Center* (Centro de Costos), cruzando el esfuerzo (tiempo, carga mental) con la realidad financiera para calcular un Micro-ROI preciso.
+
+## 2. Fundamentos de Productividad Aplicados
+
+El sistema no solo automatiza datos, sino que codifica metodologías probadas en sus algoritmos:
+
+1. **4DX (Las 4 Disciplinas de la Ejecución):** Separación algorítmica entre *Lag Measures* (Ciclos, Objetivos) e *Lead Measures* (Nodos ejecutables diarios priorizados). Mantenimiento de un Scoreboard en Notion.
+2. **Hábitos Atómicos:** Inyección automatizada de tareas repetitivas con progresión de dificultad (sobrecarga progresiva) gestionada por el `Habit Generator`.
+3. **GTD + Deep Work:** Descarga mental en el *SSOT*. Protección de franjas de atención mediante `Agenda Planner` basado en esfuerzo, energía requerida y carga mental.
+4. **Active Recall & Spaced Repetition (SRS):** Integrado en el Motor Cognitivo para asimilar conceptos técnicos, detectando deuda estructural ($N-1$) y modulando el ancho de banda biológico del usuario.
+
+## 3. Topología del Sistema y Módulos
+
+El sistema backend se compone de módulos aislados comunicados mediante eventos internos (Spring ApplicationEvents) en el monolito modular, preparado para escalar a microservicios mediante el patrón **Transactional Outbox**.
+
+### 3.1 Grafo de Readmes (Arquitectura de Módulos)
+
+Haz clic en los enlaces para navegar a la documentación profunda de cada motor:
+
+* **Motores de Ejecución**
+    * [[sync/README-sync.md|Sync Engine (ACL & Identity Map)]]: El puente con el mundo exterior (Notion, iOS).
+    * [[core/README-core.md|Core API (State & DAG Manager)]]: El orquestador de estado y dependencias.
+    * [[prioritizer/README-prioritizer.md|Task Prioritizer]]: El cerebro matemático de priorización reactiva.
+    * [[planner/README-planner.md|Agenda Planner]]: El optimizador de bin-packing estocástico para la agenda.
+
+* **Motores Inteligentes**
+    * [[cognitive/README-cognitive.md|Cognitive Engine (FSM & LLM Orchestrator)]]: El guardián del ancho de banda mental y aprendizaje acelerado.
+    * [[finance/README-finance.md|Financial Service (ZBB & Micro-ROI)]]: Contabilidad de partida doble y atribución de costos.
+
+* **Componentes Transversales**
+    * [[common/README-common.md|Common Components]]: Componentes compartidos, eventos y utilidades EDA.
+    * [[app/README-app.md|App & Bootstrap]]: Configuración central y arranque del sistema.
+    * [[it/README-it.md|Integration Tests]]: Pruebas E2E y validación sistémica.
+
+---
+
+## 4. Modelo de Datos Maestro (ERD)
+
+El esquema separa las responsabilidades lógicas, garantizando integridad referencial mediante *soft-keys* entre esquemas donde sea necesario.
 
 ```mermaid
 erDiagram
-    %% === GLOBAL / SHARED ===
-    OUTBOX_EVENTS {
-        uuid id PK
-        uuid tenant_id "RLS Key"
-        string aggregate_type
-        uuid aggregate_id
-        string event_type
-        jsonb payload
-        timestamp occurred_at
-        boolean processed
-    }
-
-    %% === SYNC ENGINE (sync_schema) ===
+    %% === SYNC ENGINE (Identity Map) ===
     SYNC_EXTERNAL_IDENTITY_MAP {
         uuid id PK
-        uuid tenant_id "RLS Key"
-        uuid internal_entity_id "FK a CORE_EXECUTABLE / CORE_TIME_BLOCK"
+        uuid internal_entity_id "FK a CORE_EXECUTABLE"
         string external_system "Notion, AppleReminders, AppleCalendar"
         string external_id "ID Nativo"
-        string semantic_hash "MD5/SHA256 del payload de negocio"
+        string semantic_hash "MD5/SHA256 del payload"
         timestamp last_synced_at
     }
 
-    %% === CORE EXECUTION (core_schema) ===
+    %% === CORE EXECUTION & COGNITIVE ===
     CORE_PROJECT {
         uuid id PK
-        uuid tenant_id "RLS Key"
         string name
         decimal total_invested_value
         string status
-        int version
     }
 
     CORE_EXECUTABLE {
         uuid id PK
-        uuid tenant_id "RLS Key"
-        uuid parent_id FK "Hierarchy"
-        uuid cycle_id FK "4DX Goal"
-        string name
-        string description
+        uuid project_id FK
         string type "TASK, HABIT, LEARNING_NODE"
-        string status "PENDING, IN_PROGRESS, DONE"
+        string status "BLOCKED, PENDING, DONE"
         decimal priority_score
-        decimal urgency_score
-        int impact_score
-        int effort_score
-    }
-
-    CORE_CYCLE {
-        uuid id PK
-        uuid tenant_id "RLS Key"
-        string name
-        date start_date
-        date end_date
-        string status "ACTIVE, COMPLETED"
+        decimal effort_score
     }
 
     CORE_EXECUTION_PROFILE {
-        uuid executable_id PK, FK
-        uuid tenant_id "RLS Key"
-        int estimated_minutes
+        uuid id PK
+        uuid executable_id FK
+        int time_score
         int mental_load
-        int energy_drain
+        int energy
     }
 
-    FIN_TRANSACTION {
+    LEARNING_STATE {
         uuid id PK
-        uuid tenant_id "RLS Key"
         uuid executable_id FK
-        decimal amount
-        string currency
-        string type "INCOME, EXPENSE"
-        timestamp occurred_at
+        timestamp next_review_date
+        string current_phase "PRIMING, FRAGILE, CONSOLIDATED"
     }
 
     %% RELACIONES
     SYNC_EXTERNAL_IDENTITY_MAP }o--|| CORE_EXECUTABLE : "Mapea Identidad"
-    CORE_CYCLE ||--o{ CORE_EXECUTABLE : "Agrupa"
-    CORE_EXECUTABLE ||--o{ CORE_EXECUTABLE : "Sub-tareas"
+    CORE_PROJECT ||--o{ CORE_EXECUTABLE : "Agrupa"
     CORE_EXECUTABLE ||--|| CORE_EXECUTION_PROFILE : "Define Perfil"
-    CORE_EXECUTABLE ||--o{ FIN_TRANSACTION : "Atribuye Micro-ROI"
-    CORE_EXECUTABLE ||--o| LEARNING_STATE : "Gestiona SRS (Soft-key)"
-    CORE_EXECUTABLE ||--o{ OUTBOX_EVENTS : "Genera Evento"
+    CORE_EXECUTABLE ||--o| LEARNING_STATE : "Gestiona SRS"
 ```
-
-## 3. Mapa del Sistema (Obsidian Hub)
-Haz clic en los enlaces para navegar a la documentación profunda de cada motor:
-
-### 🛠️ Motores de Ejecución
-* [[src/main/java/com/hyperbrain/sopfc/sync/README-sync|Sync Engine (ACL & Identity Map)]]: El puente con el mundo exterior (Notion, iOS).
-* [[src/main/java/com/hyperbrain/sopfc/core/README-core|Core API (State & DAG Manager)]]: El orquestador de estado y dependencias.
-* [[src/main/java/com/hyperbrain/sopfc/prioritizer/README-prioritizer|Task Prioritizer]]: El cerebro matemático de priorización reactiva.
-* [[src/main/java/com/hyperbrain/sopfc/planner/README-planner|Agenda Planner]]: El optimizador de bin-packing estocástico para la agenda.
-
-### 🧠 Motores Inteligentes
-* [[src/main/java/com/hyperbrain/sopfc/cognitive/README-cognitive|Cognitive Engine (SRS & FSM)]]: El guardián del ancho de banda mental y aprendizaje acelerado.
-* [[src/main/java/com/hyperbrain/sopfc/finance/README-finance|Financial Service (ZBB & Micro-ROI)]]: Contabilidad de partida doble y atribución de costos.
-
----
-
-## 4. Fundamentos Teóricos del Ecosistema
-El sistema no es solo software; es la codificación de metodologías de rendimiento:
-
-1. **4DX (Las 4 Disciplinas de la Ejecución):** Separación de *Lag Measures* (Ciclos) vs *Lead Measures* (Lead Nodes diarios).
-2. **Hábitos Atómicos:** Inyección de rutinas con progresión de dificultad gestionada algorítmicamente.
-3. **Zettelkasten + SRS:** Gestión de conocimiento mediante Active Recall y Repetición Espaciada integrada en el flujo de trabajo.
-4. **Zero-Based Budgeting (ZBB):** Cada dólar (y cada minuto) debe tener un propósito asignado antes de ser gastado.
 
 ## 5. Estándares de Ingeniería
 * **Arquitectura:** Monolito Modular con enfoque **Hexagonal (Ports & Adapters)**.
-* **Comunicación:** Event-Driven Architecture (EDA) mediante el patrón **Transactional Outbox**.
-* **Persistencia:** PostgreSQL con **Row-Level Security (RLS)** obligatorio para aislamiento de datos.
-* **Integridad:** Uso de **Hashes Semánticos** para evitar ruido en la sincronización.
+* **Comunicación:** Event-Driven Architecture (EDA) mediante **Transactional Outbox**.
+* **Persistencia:** PostgreSQL. Sistema monousuario de uso personal.
+* **Configuración:** Externalización completa (12-Factor App).
 
 ---
 © 2026 HyperBrain Engineering. Todos los derechos reservados.

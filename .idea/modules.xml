@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HyperBrain-be.main.iml" filepath="$PROJECT_DIR$/.idea/modules/HyperBrain-be.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cognitive/hyperbrain-be.cognitive.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cognitive/hyperbrain-be.cognitive.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/hyperbrain-be.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/hyperbrain-be.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/hyperbrain-be.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/hyperbrain-be.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/finance/hyperbrain-be.finance.main.iml" filepath="$PROJECT_DIR$/.idea/modules/finance/hyperbrain-be.finance.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/planner/hyperbrain-be.planner.main.iml" filepath="$PROJECT_DIR$/.idea/modules/planner/hyperbrain-be.planner.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/prioritizer/hyperbrain-be.prioritizer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/prioritizer/hyperbrain-be.prioritizer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sync/hyperbrain-be.sync.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sync/hyperbrain-be.sync.main.iml" />
     </modules>
   </component>
 </project>

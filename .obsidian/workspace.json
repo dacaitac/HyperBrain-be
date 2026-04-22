@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GEMINI.md",
+                "file": "it/GEMINI-it.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GEMINI"
+              "title": "GEMINI-it"
             }
           }
         ]
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "GEMINI.md",
+                "file": "it/GEMINI-it.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for GEMINI"
+              "title": "Backlinks for GEMINI-it"
             }
           },
           {
@@ -114,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "GEMINI.md",
+                "file": "it/GEMINI-it.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from GEMINI"
+              "title": "Outgoing links from GEMINI-it"
             }
           },
           {
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "GEMINI.md",
+                "file": "it/GEMINI-it.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of GEMINI"
+              "title": "Outline of GEMINI-it"
             }
           }
         ]
@@ -186,32 +186,41 @@
   },
   "active": "890ec86de6e060ff",
   "lastOpenFiles": [
-    "build/test-results 2",
-    "src/main/resources/application-prod.yml",
-    "build/libs 2",
-    "build/lombok 2",
-    "build/resolvedMainClassName 2",
-    "build/resources/main/sync-resources/create.json",
-    "build/libs/HyperBrain-be-0.0.1-SNAPSHOT.jar",
-    "build/classes/java/main/com/hyperbrain/sopfc/SopfcApplication.class",
-    "build/resources/main/db/migration/V4__Data_Model_Expansion.sql",
-    "build/resources/main/db/migration/V2__Sync_Mappings.sql",
-    "build/resources/main/application.yml",
-    "README.md",
-    "src/main/java/com/hyperbrain/sopfc/planner/GEMINI-planner.md",
-    "src/main/java/com/hyperbrain/sopfc/planner/README-planner.md",
-    "src/main/java/com/hyperbrain/sopfc/sync/GEMINI-sync.md",
-    "src/main/java/com/hyperbrain/sopfc/sync/README-sync.md",
-    "src/main/java/com/hyperbrain/sopfc/finance/GEMINI-finance.md",
-    "src/main/java/com/hyperbrain/sopfc/finance/README-finance.md",
-    "src/main/java/com/hyperbrain/sopfc/cognitive/GEMINI-cognitive.md",
-    "src/main/java/com/hyperbrain/sopfc/cognitive/README-cognitive.md",
-    "src/main/java/com/hyperbrain/sopfc/prioritizer/GEMINI-prioritizer.md",
-    "src/main/java/com/hyperbrain/sopfc/prioritizer/README-prioritizer.md",
-    "src/main/java/com/hyperbrain/sopfc/core/GEMINI-core.md",
-    "src/main/java/com/hyperbrain/sopfc/core/README-core.md",
-    "src/main/java/com/hyperbrain/sopfc/finance/GEMINI-0.md",
-    "src/main/java/com/hyperbrain/sopfc/finance/README-0.md",
-    "GEMINI.md"
+    "core/build/classes 3",
+    "finance/build/classes 5",
+    "common/build/classes 3",
+    "sync/build/classes 4",
+    "cognitive/build/classes 5",
+    "prioritizer/build/classes 3",
+    "planner/build/classes 6",
+    "it/build/test-results 2",
+    "it/build/reports 2",
+    "app/build/classes 2",
+    "app/build/resources 2",
+    "sopfc-cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/README-cognitive.md",
+    "sopfc-cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/GEMINI-cognitive.md",
+    "sopfc-planner/src/main/java/com/hyperbrain/sopfc/planner/README-planner.md",
+    "sopfc-planner/src/main/java/com/hyperbrain/sopfc/planner/GEMINI-planner.md",
+    "sopfc-finance/src/main/java/com/hyperbrain/sopfc/finance/README-finance.md",
+    "sopfc-finance/src/main/java/com/hyperbrain/sopfc/finance/GEMINI-finance.md",
+    "sopfc-sync/src/main/java/com/hyperbrain/sopfc/sync/README-sync.md",
+    "sopfc-sync/src/main/java/com/hyperbrain/sopfc/sync/GEMINI-sync.md",
+    "sopfc-core/src/main/java/com/hyperbrain/sopfc/core/README-core.md",
+    "sopfc-core/src/main/java/com/hyperbrain/sopfc/core/GEMINI-core.md",
+    "sopfc-prioritizer/src/main/java/com/hyperbrain/sopfc/prioritizer/README-prioritizer.md",
+    "sopfc-prioritizer/src/main/java/com/hyperbrain/sopfc/prioritizer/GEMINI-prioritizer.md",
+    "it/README-it.md",
+    "planner/README-planner.md",
+    "finance/GEMINI-finance.md",
+    "sync/GEMINI-sync.md",
+    "sync/README-sync.md",
+    "prioritizer/GEMINI-prioritizer.md",
+    "prioritizer/README-prioritizer.md",
+    "planner/GEMINI-planner.md",
+    "it/GEMINI-it.md",
+    "finance/README-finance.md",
+    "core/GEMINI-core.md",
+    "core/README-core.md",
+    "common/GEMINI-common.md"
   ]
 }

@@ -1,0 +1,38 @@
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sopfc
+    username: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: public
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    schemas: public,core,sync,common,finance
+    create-schemas: true
+    clean-on-validation-error: true
+    clean-disabled: false
+
+notion:
+  token: ${NOTION_TOKEN:test-token}
+  database-ids:
+    tasks: ${NOTION_TASKS_DB_ID:test-db-id}
+
+app:
+  outbox:
+    enabled: true
+
+logging:
+  level:
+    com.hyperbrain: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.reactive.function.client.WebClient: DEBUG

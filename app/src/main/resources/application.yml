@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: hyperbrain-be
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/sopfc}
+    username: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/sopfc}
+    user: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: ${APP_SHOW_SQL:false}
+    properties:
+      hibernate:
+        format_sql: ${APP_SHOW_SQL:false}
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+notion:
+  token: ${NOTION_TOKEN:dummy-token}
+  version: "2022-06-28"
+  database-ids:
+    tasks: ${NOTION_TASKS_DB_ID:dummy-db-id}
+
+apple:
+  sentinel:
+    url: ${APPLE_SENTINEL_URL:http://127.0.0.1:1995}
+
+app:
+  outbox:
+    enabled: ${APP_OUTBOX_ENABLED:true}
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.web.reactive.function.client.WebClient: DEBUG
+    com.hyperbrain: DEBUG
+
+server:
+  port: ${PORT:8080}

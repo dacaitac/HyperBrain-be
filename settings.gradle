@@ -1,1 +1,11 @@
-rootProject.name = 'HyperBrain-be'
+rootProject.name = 'hyperbrain-be'
+
+include 'common'
+include 'core'
+include 'sync'
+include 'cognitive'
+include 'finance'
+include 'planner'
+include 'prioritizer'
+include 'app'
+include 'it'
