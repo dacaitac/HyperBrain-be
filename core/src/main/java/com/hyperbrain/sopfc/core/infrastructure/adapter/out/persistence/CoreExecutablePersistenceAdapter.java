@@ -23,6 +23,16 @@ public class CoreExecutablePersistenceAdapter implements ExecutableRepositoryPor
     }
 
     @Override
+    public java.util.List<CoreExecutable> findByName(String name) {
+        return repository.findByNameIgnoreCase(name).stream().map(this::toDomain).toList();
+    }
+
+    @Override
+    public java.util.List<CoreExecutable> findByNameAndDate(String name, java.time.OffsetDateTime date) {
+        return repository.findByNameIgnoreCaseAndStartTime(name, date).stream().map(this::toDomain).toList();
+    }
+
+    @Override
     public CoreExecutable save(CoreExecutable executable) {
         CoreExecutableEntity entity = toEntity(executable);
         if (entity.getExecutionProfile() != null) {
@@ -58,6 +68,9 @@ public class CoreExecutablePersistenceAdapter implements ExecutableRepositoryPor
                 .endTime(entity.getEndTime())
                 .applePriority(entity.getApplePriority())
                 .externalUrl(entity.getExternalUrl())
+                .sourceCalendar(entity.getSourceCalendar())
+                .alarms(entity.getAlarms())
+                .recurrence(entity.getRecurrence())
                 .completionDate(entity.getCompletionDate())
                 .lastModifiedDate(entity.getLastModifiedDate())
                 .build();
@@ -90,6 +103,9 @@ public class CoreExecutablePersistenceAdapter implements ExecutableRepositoryPor
                 .endTime(domain.getEndTime())
                 .applePriority(domain.getApplePriority())
                 .externalUrl(domain.getExternalUrl())
+                .sourceCalendar(domain.getSourceCalendar())
+                .alarms(domain.getAlarms())
+                .recurrence(domain.getRecurrence())
                 .completionDate(domain.getCompletionDate())
                 .lastModifiedDate(domain.getLastModifiedDate())
                 .executionProfile(profileEntity)

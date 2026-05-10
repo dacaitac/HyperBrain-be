@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "core_project")
+@Table(name = "core_project", schema = "core")
 @Getter
 @Setter
 @NoArgsConstructor

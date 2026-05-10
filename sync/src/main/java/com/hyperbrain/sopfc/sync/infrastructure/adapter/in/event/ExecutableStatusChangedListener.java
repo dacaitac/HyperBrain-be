@@ -25,7 +25,7 @@ public class ExecutableStatusChangedListener {
 
     @EventListener
     public void onExecutableStatusChanged(ExecutableStatusChangedEvent event) {
-        log.info("🔔 [EVENT-RECEPTION] Status changed for {} from source {}", 
+        log.info("🔔 [EVENT-RECEPTION] Change event for {} from source {}", 
             event.getExecutableId(), event.getSourceSystem());
         
         localRepo.findById(event.getExecutableId()).ifPresentOrElse(executable -> {
@@ -38,34 +38,44 @@ public class ExecutableStatusChangedListener {
                     return;
                 }
 
-                if ("APPLE_CALENDAR".equals(system) && !executable.isPlanned()) {
-                    return;
-                }
-
                 log.info("🌐 [PROPAGATION] Syncing change to {}: ID {}", system, executable.getId());
+                
+                // Robust lookup: check if we ALREADY have a mapping for this system
                 syncMappingRepo.findByExecutableId(executable.getId(), system)
                         .ifPresentOrElse(
                             mapping -> {
                                 try {
+                                    log.info("🔄 [PROPAGATION] Updating existing {} item: {}", system, mapping.externalId());
                                     port.pushUpdate(executable, mapping.externalId());
+                                    
+                                    // Update mapping checksum to avoid loops
+                                    SyncMappingRepositoryPort.SyncMapping updatedMapping = new SyncMappingRepositoryPort.SyncMapping(
+                                        mapping.id(),
+                                        mapping.executableId(),
+                                        mapping.externalSystem(),
+                                        mapping.externalId(),
+                                        SyncUtils.calculateChecksum(executable),
+                                        OffsetDateTime.now(),
+                                        "IN_SYNC"
+                                    );
+                                    syncMappingRepo.save(updatedMapping);
                                 } catch (Exception e) {
                                     log.error("❌ [PROPAGATION] Error updating {}: {}", system, e.getMessage());
                                 }
                             },
                             () -> {
                                 try {
-                                    log.info("➕ [PROPAGATION] Pushing NEW item to {}: {}", system, executable.getName());
+                                    log.info("➕ [PROPAGATION] Pushing NEW item to {}: '{}'", system, executable.getName());
                                     String extId = port.pushCreate(executable);
                                     if (extId != null) {
                                         log.info("✅ [PROPAGATION] Created in {}. External ID: {}", system, extId);
+                                        // Final double check before saving mapping to prevent race conditions
                                         if (syncMappingRepo.findByExecutableId(executable.getId(), system).isEmpty()) {
                                             saveNewMapping(executable, system, extId);
                                         }
-                                    } else {
-                                        log.warn("⚠️ [PROPAGATION] Port {} returned null ID for creation.", system);
                                     }
                                 } catch (Exception e) {
-                                    log.error("❌ [PROPAGATION] Exception creating in {}: {}", system, e.getMessage(), e);
+                                    log.error("❌ [PROPAGATION] Exception creating in {}: {}", system, e.getMessage());
                                 }
                             }
                         );

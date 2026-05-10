@@ -39,6 +39,9 @@ public class CoreExecutable {
     // Campos extendidos para sincronización bidireccional rica
     private Integer applePriority; // 1-9
     private String externalUrl;
+    private String sourceCalendar; // Nombre de la lista o calendario de origen (Apple/Notion)
+    private java.util.List<OffsetDateTime> alarms;
+    private String recurrence;
     private OffsetDateTime completionDate;
     private OffsetDateTime lastModifiedDate;
 

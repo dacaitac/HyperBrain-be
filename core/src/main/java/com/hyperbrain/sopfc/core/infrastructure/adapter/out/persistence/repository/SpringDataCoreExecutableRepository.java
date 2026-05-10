@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface SpringDataCoreExecutableRepository extends JpaRepository<CoreExecutableEntity, UUID> {
+    java.util.List<CoreExecutableEntity> findByNameIgnoreCase(String name);
+    java.util.List<CoreExecutableEntity> findByNameIgnoreCaseAndStartTime(String name, java.time.OffsetDateTime startTime);
 }

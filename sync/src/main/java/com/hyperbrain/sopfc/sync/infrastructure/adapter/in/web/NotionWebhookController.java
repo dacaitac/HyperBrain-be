@@ -36,13 +36,24 @@ public class NotionWebhookController {
 
             SyncContextHolder.setSource("NOTION");
 
-            if (payload.getData().isArchived()) {
-                log.info("🗑️ [NOTION-WEBHOOK] Page is ARCHIVED. Triggering external delete for: {}", externalId);
+            // Prioritize deletion/archival by checking both the payload flag and the event type
+            boolean isDeletionEvent = "page.deleted".equalsIgnoreCase(payload.getType());
+            
+            if (payload.getData().isArchived() || isDeletionEvent) {
+                log.info("🗑️ [NOTION-WEBHOOK] Page is ARCHIVED or DELETED (type: {}). Triggering external delete for: {}", 
+                    payload.getType(), externalId);
                 syncEngineService.processExternalDelete("NOTION", externalId);
             } else {
-                CoreExecutable updatedData = notionSyncAdapter.toDomain(payload.getData());
-                syncEngineService.processExternalUpdate("NOTION", externalId, updatedData);
-                log.info("✅ [NOTION-WEBHOOK] Processing scheduled for page: {}", externalId);
+                // Proactive check: if we receive an update, we verify if it might have been archived recently 
+                // but the payload hasn't reflected it yet (standard webhooks can be slightly out of sync).
+                if (notionSyncAdapter.isArchived(externalId)) {
+                    log.info("🗑️ [NOTION-WEBHOOK] Proactive check revealed page is ARCHIVED. Triggering delete for: {}", externalId);
+                    syncEngineService.processExternalDelete("NOTION", externalId);
+                } else {
+                    CoreExecutable updatedData = notionSyncAdapter.toDomain(payload.getData());
+                    syncEngineService.processExternalUpdate("NOTION", externalId, updatedData);
+                    log.info("✅ [NOTION-WEBHOOK] Processing update for page: {}", externalId);
+                }
             }
         } catch (Exception e) {
             log.error("❌ [NOTION-WEBHOOK] Error processing webhook: {}", e.getMessage(), e);

@@ -18,29 +18,47 @@ public class AppleWebhookController {
     private final SyncEngineService syncEngineService;
 
     @PostMapping("/webhook")
-    public ResponseEntity<Void> handleAppleReminderChange(
-            @RequestBody AppleReminderDto reminder) {
-        log.info("🍎 [APPLE-WEBHOOK] Received change notification ({}): '{}' (ID: {})", 
-                reminder.getChangeType(), reminder.getTitle(), reminder.getId());
+    public ResponseEntity<Void> handleAppleChange(
+            @RequestBody AppleReminderDto item) {
+        
+        String sourceSystem = "APPLE_SENTINEL";
+        
+        // Default calendar name logic: calendarName -> source -> "Reminders"
+        String calendarName = item.getCalendarName();
+        if (calendarName == null) {
+            calendarName = item.getSource() != null ? item.getSource() : "Reminders";
+        }
+        
+        log.info("🍎 [APPLE-WEBHOOK] Received change notification ({}): '{}' (ID: {}) in '{}'", 
+                item.getChangeType(), item.getTitle(), item.getId(), calendarName);
 
-        String type = reminder.getChangeType() != null ? reminder.getChangeType().toUpperCase() : "";
+        String type = item.getChangeType() != null ? item.getChangeType().toUpperCase() : "";
 
         if ("DELETE".equals(type) || "DELETED".equals(type)) {
-            syncEngineService.processExternalDelete("APPLE_REMINDERS", reminder.getId());
+            syncEngineService.processExternalDelete(sourceSystem, item.getId());
             return ResponseEntity.accepted().build();
         }
 
+        CoreExecutable.ExecutableType domainType = CoreExecutable.ExecutableType.TASK;
+        if ("Events".equalsIgnoreCase(item.getSource()) || "Event".equalsIgnoreCase(item.getSource())) {
+            domainType = CoreExecutable.ExecutableType.ACTIVITY;
+        }
+
         CoreExecutable domain = CoreExecutable.builder()
-                .name(reminder.getTitle())
-                .description(reminder.getNotes())
-                .status(Boolean.TRUE.equals(reminder.getIsCompleted()) ? ExecutableStatus.DONE : ExecutableStatus.PENDING)
-                .startTime(reminder.getDueDate())
-                .applePriority(reminder.getPriority())
-                .externalUrl(reminder.getUrl())
+                .name(item.getTitle())
+                .description(item.getNotes())
+                .type(domainType)
+                .status(Boolean.TRUE.equals(item.getIsCompleted()) ? ExecutableStatus.DONE : ExecutableStatus.PENDING)
+                .startTime(item.getDueDate())
+                .sourceCalendar(calendarName)
+                .applePriority(item.getPriority())
+                .alarms(item.getAlarms())
+                .recurrence(item.getRecurrence())
+                .externalUrl(item.getUrl())
                 .build();
 
         if ("CREATE".equals(type) || "CREATED".equals(type) || "UPDATE".equals(type) || "UPDATED".equals(type)) {
-            syncEngineService.processExternalUpdate("APPLE_REMINDERS", reminder.getId(), domain);
+            syncEngineService.processExternalUpdate(sourceSystem, item.getId(), domain);
         } else {
             log.warn("⚠️ [APPLE-WEBHOOK] Unknown change type: {}", type);
         }

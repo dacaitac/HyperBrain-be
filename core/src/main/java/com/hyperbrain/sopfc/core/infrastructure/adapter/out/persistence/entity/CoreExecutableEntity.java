@@ -8,7 +8,7 @@ import java.util.UUID;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "core_executable")
+@Table(name = "core_executable", schema = "core")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -71,4 +71,14 @@ public class CoreExecutableEntity {
 
     @Column(name = "last_modified_date")
     private OffsetDateTime lastModifiedDate;
+
+    @Column(name = "source_calendar")
+    private String sourceCalendar;
+
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
+    @Column(name = "alarms", columnDefinition = "jsonb")
+    private java.util.List<OffsetDateTime> alarms;
+
+    @Column(name = "recurrence")
+    private String recurrence;
 }

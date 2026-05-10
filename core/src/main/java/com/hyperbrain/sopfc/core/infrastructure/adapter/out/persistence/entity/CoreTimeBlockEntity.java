@@ -13,7 +13,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "core_time_block")
+@Table(name = "core_time_block", schema = "core")
 @Getter
 @Setter
 @NoArgsConstructor

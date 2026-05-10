@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: Agenda Planner
+# 🧠 Contexto Agenda Planner
 
 Este documento define el comportamiento específico del agente para el módulo `planner`.
 
@@ -11,5 +11,5 @@ Acomodar automáticamente los ejecutables en la agenda usando técnicas de Bin P
 * **Aislamiento:** Reacciona a `PrioritiesCalculated` para emitir `TimeBlockCreated`.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-planner.md|Planner Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-planner.md|Architecture]]

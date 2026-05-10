@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: Common Components
+# 🧠 Contexto Common Components
 
 Este documento define el comportamiento específico del agente para el módulo `common`.
 
@@ -11,5 +11,5 @@ Proveer los bloques de construcción transversales (eventos de dominio, excepcio
 * **Resiliencia:** Proveer patrones de reintento (Retry) y cortocircuitos (Circuit Breaker) para el manejo de fallos en APIs externas.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-common.md|Common Components Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-common.md|Architecture]]

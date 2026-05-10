@@ -15,6 +15,7 @@ import java.time.OffsetDateTime;
 public class AppleReminderDto {
     private String id;
     private String title;
+    private String source; // "Reminders" o "Events"
     private String notes;
     private String calendarName;
     private OffsetDateTime dueDate;
@@ -22,6 +23,8 @@ public class AppleReminderDto {
     private String changeType; // CREATE, UPDATE, DELETE
     private Integer priority;
     private String url;
+    private java.util.List<OffsetDateTime> alarms;
+    private String recurrence;
     private OffsetDateTime completionDate;
     private OffsetDateTime lastModifiedDate;
 }

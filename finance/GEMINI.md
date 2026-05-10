@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: Financial Service
+# 🧠 Contexto Financial Service
 
 Este documento define el comportamiento específico del agente para el módulo `finance`.
 
@@ -11,5 +11,5 @@ Gestionar el ledger de transacciones en base doble y la atribución del ROI gran
 * **Micro-ROI:** Proveer los cálculos de retorno sobre inversión de tiempo cruzando `actual_duration_minutes` vs ingresos asociados.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-finance.md|Financial Service Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-finance.md|Architecture]]

@@ -3,6 +3,7 @@ package com.hyperbrain.sopfc.sync.infrastructure.adapter.in.web;
 import com.hyperbrain.sopfc.common.infrastructure.config.SyncContextHolder;
 import com.hyperbrain.sopfc.sync.application.usecase.SyncEngineService;
 import com.hyperbrain.sopfc.sync.application.util.SyncUtils;
+import com.hyperbrain.sopfc.sync.infrastructure.adapter.out.notion.NotionSyncAdapter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 public class NotionLegacyWebhookController {
 
     private final SyncEngineService syncEngineService;
+    private final NotionSyncAdapter notionSyncAdapter;
 
     @PostMapping
     public ResponseEntity<Void> handleLegacyWebhook(@RequestBody NotionAutomationPayload payload) {
@@ -36,9 +38,24 @@ public class NotionLegacyWebhookController {
             String externalId = SyncUtils.normalizeNotionId(payload.getEntity().getId());
             SyncContextHolder.setSource("NOTION");
 
+            // Prioritize deletion/archival
             if ("page.deleted".equalsIgnoreCase(payload.getType())) {
-                log.info("🗑️ [NOTION-LEGACY-WEBHOOK] Page DELETED. Triggering sync for: {}", externalId);
+                log.info("🗑️ [NOTION-LEGACY-WEBHOOK] Page DELETED event. Triggering sync for: {}", externalId);
                 syncEngineService.processExternalDelete("NOTION", externalId);
+            } else if ("page.properties_updated".equalsIgnoreCase(payload.getType()) || "page.created".equalsIgnoreCase(payload.getType())) {
+                // For updates or creations via automations, we verify if the page is currently archived.
+                // This is crucial because a user might have archived it and the automation triggers an 'update' instead of 'delete'.
+                log.info("🔍 [NOTION-LEGACY-WEBHOOK] Verifying status for event {} on: {}", payload.getType(), externalId);
+                if (notionSyncAdapter.isArchived(externalId)) {
+                    log.info("🗑️ [NOTION-LEGACY-WEBHOOK] Page is ARCHIVED. Triggering delete for: {}", externalId);
+                    syncEngineService.processExternalDelete("NOTION", externalId);
+                } else {
+                    log.debug("⏭️ [NOTION-LEGACY-WEBHOOK] Page is active. Standard sync will handle it if needed.");
+                    // Optional: we could trigger a fetch and update here if we want even faster updates
+                    notionSyncAdapter.fetchById(externalId).ifPresent(result -> 
+                        syncEngineService.processExternalUpdate("NOTION", externalId, result.executable())
+                    );
+                }
             } else {
                 log.debug("⏭️ [NOTION-LEGACY-WEBHOOK] Ignoring event type: {}", payload.getType());
             }

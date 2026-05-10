@@ -16,4 +16,6 @@ public class AppleReminderUpdateRequest {
     private Boolean isCompleted;
     private Integer priority;
     private String url;
+    private java.util.List<String> alarms;
+    private String recurrence;
 }

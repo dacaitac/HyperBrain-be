@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: App & Bootstrap
+# 🧠 Contexto App & Bootstrap
 
 Este documento define el comportamiento específico del agente para el módulo `app`.
 
@@ -11,5 +11,5 @@ Punto de entrada de Spring Boot y centro de orquestación (Bootstrap). Administr
 * **Bootstrap Puro:** Cero lógica de negocio; solo composición de beans y adaptadores de infraestructura global.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-app.md|App & Bootstrap Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-app.md|Architecture]]

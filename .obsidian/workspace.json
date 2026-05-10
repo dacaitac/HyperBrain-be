@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e80453517b315b38",
+        "id": "a09010779af83f96",
         "type": "tabs",
         "children": [
           {
-            "id": "890ec86de6e060ff",
+            "id": "d503ee9d9494bbfa",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "it/GEMINI-it.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "GEMINI-it"
+              "title": "New tab"
             }
           }
         ]
@@ -95,7 +91,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "it/GEMINI-it.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for GEMINI-it"
+              "title": "Backlinks"
             }
           },
           {
@@ -114,12 +109,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "it/GEMINI-it.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from GEMINI-it"
+              "title": "Outgoing links"
             }
           },
           {
@@ -157,13 +151,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "it/GEMINI-it.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of GEMINI-it"
+              "title": "Outline"
             }
           }
         ]
@@ -184,19 +177,31 @@
       "bases:Create new base": false
     }
   },
-  "active": "890ec86de6e060ff",
+  "active": "d503ee9d9494bbfa",
   "lastOpenFiles": [
-    "core/build/classes 3",
-    "finance/build/classes 5",
-    "common/build/classes 3",
-    "sync/build/classes 4",
-    "cognitive/build/classes 5",
-    "prioritizer/build/classes 3",
-    "planner/build/classes 6",
-    "it/build/test-results 2",
-    "it/build/reports 2",
-    "app/build/classes 2",
-    "app/build/resources 2",
+    "it/build/reports/tests/test/packages/com.hyperbrain.sopfc.sync.infrastructure.adapter.out.apple.html",
+    "it/build/reports/tests/test/packages/com.hyperbrain.sopfc.sync.application.usecase.html",
+    "it/build/reports/tests/test/packages/com.hyperbrain.sopfc.sync.infrastructure.adapter.out.notion.html",
+    "it/build/reports/tests/test/packages/com.hyperbrain.sopfc.sync.integration.html",
+    "it/build/reports/tests/test/packages/com.hyperbrain.sopfc.sync.infrastructure.adapter.in.web.html",
+    "it/build/reports/tests/test/classes/com.hyperbrain.sopfc.sync.integration.FullExternalSystemsSyncE2ETest.html",
+    "it/build/reports/tests/test/classes/com.hyperbrain.sopfc.sync.infrastructure.adapter.in.web.AppleInboundDatabaseTest.html",
+    "it/build/reports/tests/test/classes/com.hyperbrain.sopfc.sync.infrastructure.adapter.out.apple.AppleRealSyncTest.html",
+    "it/build/reports/tests/test/classes/com.hyperbrain.sopfc.sync.integration.AppleToNotionSyncE2ETest.html",
+    "it/build/reports/tests/test/classes/com.hyperbrain.sopfc.sync.infrastructure.adapter.out.notion.NotionRealSyncIntegrationTest.html",
+    "it/build/reports/tests/test/classes/com.hyperbrain.sopfc.sync.integration.FullBidirectionalSyncE2ETest.html",
+    "sync/GEMINI.md",
+    "prioritizer/GEMINI.md",
+    "planner/GEMINI.md",
+    "it/GEMINI.md",
+    "finance/GEMINI.md",
+    "core/GEMINI.md",
+    "common/GEMINI.md",
+    "cognitive/GEMINI.md",
+    "app/GEMINI.md",
+    "GEMINI.md",
+    "core/GEMINI-core.md",
+    "it/GEMINI-it.md",
     "sopfc-cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/README-cognitive.md",
     "sopfc-cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/GEMINI-cognitive.md",
     "sopfc-planner/src/main/java/com/hyperbrain/sopfc/planner/README-planner.md",
@@ -209,18 +214,6 @@
     "sopfc-core/src/main/java/com/hyperbrain/sopfc/core/GEMINI-core.md",
     "sopfc-prioritizer/src/main/java/com/hyperbrain/sopfc/prioritizer/README-prioritizer.md",
     "sopfc-prioritizer/src/main/java/com/hyperbrain/sopfc/prioritizer/GEMINI-prioritizer.md",
-    "it/README-it.md",
-    "planner/README-planner.md",
-    "finance/GEMINI-finance.md",
-    "sync/GEMINI-sync.md",
-    "sync/README-sync.md",
-    "prioritizer/GEMINI-prioritizer.md",
-    "prioritizer/README-prioritizer.md",
-    "planner/GEMINI-planner.md",
-    "it/GEMINI-it.md",
-    "finance/README-finance.md",
-    "core/GEMINI-core.md",
-    "core/README-core.md",
-    "common/GEMINI-common.md"
+    "it/README-it.md"
   ]
 }

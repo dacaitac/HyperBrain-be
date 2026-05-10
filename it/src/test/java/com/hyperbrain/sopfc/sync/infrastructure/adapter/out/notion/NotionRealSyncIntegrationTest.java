@@ -12,11 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Disabled;
@@ -83,28 +86,24 @@ class NotionRealSyncIntegrationTest {
         
         assertEquals(ExecutableStatus.DONE, finalState.getStatus());
         
-        // 5. FETCH DELTA (Con reintentos para consistencia eventual)
-        System.out.println("--- Executing FETCH DELTA (with retries) ---");
-        boolean found = false;
-        int maxRetries = 15;
+        // 5. FETCH DELTA (Con reintentos para consistencia eventual con Awaitility)
+        System.out.println("--- Executing FETCH DELTA (with Awaitility) ---");
         String normalizedTargetId = externalId.replace("-", "");
         
-        for (int i = 0; i < maxRetries; i++) {
-            List<ExternalSyncPort.ExternalSyncResult> delta = notionAdapter.fetchDelta();
-            found = delta.stream().anyMatch(r -> r.externalId().replace("-", "").equals(normalizedTargetId));
-            if (found) {
-                System.out.println("Page found in delta results after " + (i + 1) + " attempts.");
-                break;
-            }
-            System.out.println("Attempt " + (i + 1) + " failed. Page " + externalId + " not in delta yet...");
-            try { Thread.sleep(3000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
-        }
-        
-        if (!found) {
-            System.err.println("WARNING: Page " + externalId + " not found in delta results after max retries. " +
+        try {
+            await("Notion search index synchronization").atMost(Duration.ofSeconds(45))
+                    .pollInterval(Duration.ofSeconds(3))
+                    .until(() -> {
+                        List<ExternalSyncPort.ExternalSyncResult> delta = notionAdapter.fetchDelta();
+                        return delta.stream().anyMatch(r -> r.externalId().replace("-", "").equals(normalizedTargetId));
+                    });
+            System.out.println("Page found in delta results.");
+        } catch (org.awaitility.core.ConditionTimeoutException e) {
+            System.err.println("WARNING: Page " + externalId + " not found in delta results after timeout. " +
                 "Notion search index lag is higher than expected, but direct CRUD was successful.");
         }
         
         System.out.println("CRUD Cycle completed successfully for Notion (Direct CRUD verified).");
     }
 }
+

@@ -1,6 +1,5 @@
 package com.hyperbrain.sopfc.sync.application.usecase;
 
-import com.hyperbrain.sopfc.common.domain.port.out.OutboxPort;
 import com.hyperbrain.sopfc.common.infrastructure.config.SyncContextHolder;
 import com.hyperbrain.sopfc.core.domain.model.CoreExecutable;
 import com.hyperbrain.sopfc.core.domain.port.out.ExecutableRepositoryPort;
@@ -23,7 +22,6 @@ public class SyncPersistenceService {
 
     private final ExecutableRepositoryPort localRepo;
     private final SyncMappingRepositoryPort syncMappingRepo;
-    private final OutboxPort outboxPort;
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public CoreExecutable createFullLinkAtomic(CoreExecutable extItem, String system, String extId) {
@@ -50,17 +48,29 @@ public class SyncPersistenceService {
         
         log.info("💾 [DB-ATOMIC] Step 2: Saving Mapping for {} (ExtID: {})", system, normalizedExtId);
         syncMappingRepo.save(mapping);
-
-        log.info("📢 [DB-ATOMIC] Step 3: Emitting EXECUTABLE_CREATED to Outbox");
-        outboxPort.saveEvent(
-            "CORE_EXECUTABLE",
-            newLocalId.toString(),
-            "EXECUTABLE_CREATED",
-            "{\"newStatus\":\"" + saved.getStatus() + "\",\"sourceSystem\":\"" + system + "\"}",
-            system
-        );
         
         return saved;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void linkExistingAtomic(CoreExecutable local, String system, String extId) {
+        SyncContextHolder.setSource(system);
+        
+        String normalizedExtId = "NOTION".equals(system) ? SyncUtils.normalizeNotionId(extId) : extId;
+        
+        SyncMapping mapping = new SyncMapping(
+            UUID.randomUUID(),
+            local.getId(),
+            system,
+            normalizedExtId,
+            SyncUtils.calculateChecksum(local),
+            OffsetDateTime.now(),
+            "IN_SYNC"
+        );
+        
+        log.info("💾 [DB-ATOMIC] Linking existing Executable {} to {} (ExtID: {})", 
+            local.getId(), system, normalizedExtId);
+        syncMappingRepo.save(mapping);
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
@@ -80,14 +90,5 @@ public class SyncPersistenceService {
             "IN_SYNC"
         );
         syncMappingRepo.save(updatedMapping);
-
-        log.info("📢 [DB-ATOMIC] Emitting EXECUTABLE_STATUS_CHANGED to Outbox");
-        outboxPort.saveEvent(
-            "CORE_EXECUTABLE",
-            local.getId().toString(),
-            "EXECUTABLE_STATUS_CHANGED",
-            "{\"newStatus\":\"" + local.getStatus() + "\",\"sourceSystem\":\"" + mapping.externalSystem() + "\"}",
-            mapping.externalSystem()
-        );
     }
 }

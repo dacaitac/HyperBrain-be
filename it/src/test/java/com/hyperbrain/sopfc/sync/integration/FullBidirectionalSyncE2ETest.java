@@ -23,9 +23,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.util.Map;
 import java.util.UUID;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -87,13 +90,17 @@ public class FullBidirectionalSyncE2ETest {
                         "id", sharedAppleId, "title", testTitle, "changeType", "CREATE"
                 )))).andExpect(status().isAccepted());
 
-        waitFor(() -> mappingRepository.findByExternalIdAndExternalSystem(sharedAppleId, "APPLE_REMINDERS").isPresent(), 5000, "Apple Mapping");
+        await("Apple Mapping").atMost(Duration.ofSeconds(5))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> mappingRepository.findByExternalIdAndExternalSystem(sharedAppleId, "APPLE_REMINDERS").isPresent());
         localId = mappingRepository.findByExternalIdAndExternalSystem(sharedAppleId, "APPLE_REMINDERS").get().getExecutableId();
         
         // Propagate to Notion
         outboxScheduler.processOutbox();
 
-        waitFor(() -> mappingRepository.findAllByExecutableId(localId).stream().anyMatch(m -> m.getExternalSystem().equals("NOTION")), 15000, "Notion Mapping");
+        await("Notion Mapping").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> mappingRepository.findAllByExecutableId(localId).stream().anyMatch(m -> m.getExternalSystem().equals("NOTION")));
         sharedNotionId = mappingRepository.findAllByExecutableId(localId).stream().filter(m -> m.getExternalSystem().equals("NOTION")).findFirst().get().getExternalId();
         
         log.info("✅ Step 1: Initial sync confirmed. Notion ID: {}", sharedNotionId);
@@ -126,10 +133,12 @@ public class FullBidirectionalSyncE2ETest {
         outboxScheduler.processOutbox();
 
         // Verify in Apple
-        waitFor(() -> {
-            var apple = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
-            return apple.get("isCompleted").asBoolean();
-        }, 15000, "Apple Status Sync (True)");
+        await("Apple Status Sync (True)").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> {
+                    var apple = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
+                    return apple != null && apple.get("isCompleted").asBoolean();
+                });
         
         log.info("✅ Step 2: Notion -> Apple (Completed) verified.");
     }
@@ -158,10 +167,12 @@ public class FullBidirectionalSyncE2ETest {
 
         outboxScheduler.processOutbox();
 
-        waitFor(() -> {
-            var apple = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
-            return !apple.get("isCompleted").asBoolean();
-        }, 15000, "Apple Status Sync (False)");
+        await("Apple Status Sync (False)").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> {
+                    var apple = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
+                    return apple != null && !apple.get("isCompleted").asBoolean();
+                });
 
         log.info("✅ Step 3: Notion -> Apple (Uncompleted) verified.");
     }
@@ -181,13 +192,5 @@ public class FullBidirectionalSyncE2ETest {
         executableRepository.deleteAll();
         log.info("✅ Step 4: Cleanup verified.");
     }
-
-    private void waitFor(java.util.function.BooleanSupplier condition, int timeoutMs, String desc) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < timeoutMs) {
-            try { if (condition.getAsBoolean()) return; } catch (Exception ignored) {}
-            Thread.sleep(3000);
-        }
-        if (!condition.getAsBoolean()) throw new AssertionError("Timeout: " + desc);
-    }
 }
+

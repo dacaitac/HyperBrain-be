@@ -37,7 +37,7 @@ class SyncEngineServiceTest {
         
         when(externalPort.getSystemIdentifier()).thenReturn("TEST-SYSTEM");
 
-        syncEngineService = new SyncEngineService(List.of(externalPort), localRepo, syncMappingRepo, syncPersistenceService, outboxPort, objectMapper);
+        syncEngineService = new SyncEngineService(List.of(externalPort), localRepo, syncMappingRepo, syncPersistenceService, outboxPort);
     }
 
     @Test

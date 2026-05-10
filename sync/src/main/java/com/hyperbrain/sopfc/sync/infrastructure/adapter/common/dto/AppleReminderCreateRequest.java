@@ -15,4 +15,6 @@ public class AppleReminderCreateRequest {
     private Boolean isCompleted;
     private Integer priority;
     private String url;
+    private java.util.List<String> alarms;
+    private String recurrence;
 }

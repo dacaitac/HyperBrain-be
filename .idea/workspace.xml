@@ -5,152 +5,200 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c86177f-0308-48eb-952d-7c409f68bb2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/cognitive/hyperbrain-be.cognitive.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/common/hyperbrain-be.common.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/core/hyperbrain-be.core.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/finance/hyperbrain-be.finance.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/planner/hyperbrain-be.planner.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/prioritizer/hyperbrain-be.prioritizer.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-app/hyperbrain-be.sopfc-app.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-cognitive/hyperbrain-be.sopfc-cognitive.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-common/hyperbrain-be.sopfc-common.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-core/hyperbrain-be.sopfc-core.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-finance/hyperbrain-be.sopfc-finance.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-finance/hyperbrain-be.sopfc-finance.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-it/hyperbrain-be.sopfc-it.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-planner/hyperbrain-be.sopfc-planner.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-prioritizer/hyperbrain-be.sopfc-prioritizer.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-sync/hyperbrain-be.sopfc-sync.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sopfc-sync/hyperbrain-be.sopfc-sync.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sync/hyperbrain-be.sync.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/gc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileChanges/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileChanges/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/gc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/fileChanges/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/fileChanges/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.4.1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.1/gc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/HyperBrain-be.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/appearance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/core-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/core-plugins.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.obsidian/graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/graph.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GEMINI.md" beforeDir="false" afterPath="$PROJECT_DIR$/GEMINI.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootrun.log" beforeDir="false" afterPath="$PROJECT_DIR$/bootrun.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GEMINI-app.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/README-app.md" beforeDir="false" afterPath="$PROJECT_DIR$/app/README-app.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/logs/hyperbrain.log" beforeDir="false" afterPath="$PROJECT_DIR$/app/logs/hyperbrain.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hyperbrain/sopfc/SopfcApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hyperbrain/sopfc/SopfcApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/db/migration/V1__Initial_Schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V1__Initial_Schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/db/migration/V2__Sync_Mappings.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V2__Sync_Mappings.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/db/migration/V3__Extend_Core_Executable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V3__Extend_Core_Executable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/db/migration/V4__Data_Model_Expansion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V4__Data_Model_Expansion.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/db/migration/V5__Add_Source_To_Outbox.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V5__Add_Source_To_Outbox.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/db/migration/V6__Drop_Sync_Mappings_FK.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V6__Drop_Sync_Mappings_FK.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/sync-resources/create.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/sync-resources/create.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/sync-resources/update.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/sync-resources/update.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/GEMINI-cognitive.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/README-cognitive.md" beforeDir="false" afterPath="$PROJECT_DIR$/cognitive/README-cognitive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cognitive/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/application/usecase/CognitiveThrottlingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/application/usecase/CognitiveThrottlingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/domain/model/LearningState.java" beforeDir="false" afterPath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/domain/model/LearningState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/infrastructure/adapter/out/persistence/SpringDataCognitiveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/infrastructure/adapter/out/persistence/SpringDataCognitiveRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/infrastructure/adapter/out/persistence/entity/CognitiveLoadEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/cognitive/src/main/java/com/hyperbrain/sopfc/cognitive/infrastructure/adapter/out/persistence/entity/CognitiveLoadEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/GEMINI-common.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/README-common.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/README-common.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/application/outbox/OutboxScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/application/outbox/OutboxScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/event/ExecutableDeletedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/event/ExecutableDeletedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/event/ExecutableStatusChangedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/event/ExecutableStatusChangedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/exception/DomainException.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/exception/DomainException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/port/out/EventPublisherPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/port/out/EventPublisherPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/port/out/OutboxPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/domain/port/out/OutboxPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/HeartbeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/HeartbeatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/NotionWebhookSafetyFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/NotionWebhookSafetyFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/out/event/SpringEventPublisherAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/out/event/SpringEventPublisherAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/out/persistence/OutboxPersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/out/persistence/OutboxPersistenceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/config/SyncContextHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/config/SyncContextHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/persistence/entity/OutboxEventEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/persistence/entity/OutboxEventEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/persistence/repository/OutboxEventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/hyperbrain/sopfc/common/infrastructure/persistence/repository/OutboxEventRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/GEMINI-core.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/README-core.md" beforeDir="false" afterPath="$PROJECT_DIR$/core/README-core.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/application/usecase/MarkExecutableDoneUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/application/usecase/MarkExecutableDoneUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/exception/ExecutableNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/exception/ExecutableNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/CoreCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/CoreCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/CoreExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/CoreExecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/ExecutableStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/ExecutableStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/ExecutionProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/model/ExecutionProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/port/in/MarkExecutableDoneUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/port/in/MarkExecutableDoneUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/port/out/ExecutableRepositoryPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/domain/port/out/ExecutableRepositoryPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/in/web/CoreExecutableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/in/web/CoreExecutableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/CoreExecutablePersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/CoreExecutablePersistenceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreCycleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreCycleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreExecutableEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreExecutableEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreExecutionProfileEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreExecutionProfileEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreProjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreProjectEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreTimeBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreTimeBlockEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/repository/SpringDataCoreExecutableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/repository/SpringDataCoreExecutableRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/config/DomainConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/hyperbrain/sopfc/core/infrastructure/config/DomainConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.json" beforeDir="false" afterPath="$PROJECT_DIR$/events.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/GEMINI-finance.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/README-finance.md" beforeDir="false" afterPath="$PROJECT_DIR$/finance/README-finance.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/finance/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/domain/model/FinTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/domain/model/FinTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/domain/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/domain/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/domain/port/in/RegisterTransactionUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/domain/port/in/RegisterTransactionUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/SpringDataFinanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/SpringDataFinanceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/entity/FinTransactionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/entity/FinTransactionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/entity/FinanceTransactionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/entity/FinanceTransactionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/src/test/java/com/hyperbrain/sopfc/finance/domain/model/FinTransactionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance/src/test/java/com/hyperbrain/sopfc/finance/domain/model/FinTransactionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/GEMINI-it.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/README-it.md" beforeDir="false" afterPath="$PROJECT_DIR$/it/README-it.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/it/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/logs/hyperbrain.log" beforeDir="false" afterPath="$PROJECT_DIR$/it/logs/hyperbrain.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/main/java/com/hyperbrain/sopfc/Dummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/main/java/com/hyperbrain/sopfc/Dummy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/it/util/ServiceAssumptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/it/util/ServiceAssumptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/CrossSystemSyncIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/CrossSystemSyncIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleInboundDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleInboundDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleRealSyncTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleRealSyncTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleSentinelSyncIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleSentinelSyncIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionRealSyncIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionRealSyncIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/AppleDeletionSyncTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/AppleDeletionSyncTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/AppleToNotionSyncE2ETest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/AppleToNotionSyncE2ETest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/ComprehensiveExternalSyncTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/ComprehensiveExternalSyncTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/FullBidirectionalSyncE2ETest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/FullBidirectionalSyncE2ETest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/FullExternalSystemsSyncE2ETest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/FullExternalSystemsSyncE2ETest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/NotionDeletionSyncTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/NotionDeletionSyncTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/NotionToAppleSyncIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/NotionToAppleSyncIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/RealAppleIntegrationE2ETest.java" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/integration/RealAppleIntegrationE2ETest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/resources/sync-resources/create.json" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/resources/sync-resources/create.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it/src/test/resources/sync-resources/update.json" beforeDir="false" afterPath="$PROJECT_DIR$/it/src/test/resources/sync-resources/update.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planner/GEMINI-planner.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/planner/README-planner.md" beforeDir="false" afterPath="$PROJECT_DIR$/planner/README-planner.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planner/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/planner/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planner/src/main/java/com/hyperbrain/sopfc/planner/application/usecase/AgendaPlannerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/planner/src/main/java/com/hyperbrain/sopfc/planner/application/usecase/AgendaPlannerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prioritizer/GEMINI-prioritizer.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prioritizer/README-prioritizer.md" beforeDir="false" afterPath="$PROJECT_DIR$/prioritizer/README-prioritizer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prioritizer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/prioritizer/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prioritizer/src/main/java/com/hyperbrain/sopfc/prioritizer/application/usecase/ExecutablePriorityCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/prioritizer/src/main/java/com/hyperbrain/sopfc/prioritizer/application/usecase/ExecutablePriorityCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prioritizer/src/test/java/com/hyperbrain/sopfc/prioritizer/application/usecase/ExecutablePriorityCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/prioritizer/src/test/java/com/hyperbrain/sopfc/prioritizer/application/usecase/ExecutablePriorityCalculatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/SopfcApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/cognitive/GEMINI-cognitive.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/cognitive/README-cognitive.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/cognitive/application/usecase/CognitiveThrottlingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/cognitive/domain/model/LearningState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/cognitive/infrastructure/adapter/out/persistence/SpringDataCognitiveRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/cognitive/infrastructure/adapter/out/persistence/entity/CognitiveLoadEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/application/outbox/OutboxScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/domain/event/ExecutableStatusChangedEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/domain/exception/DomainException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/domain/port/out/OutboxPort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/in/web/HeartbeatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/infrastructure/adapter/out/persistence/OutboxPersistenceAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/infrastructure/config/DomainConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/infrastructure/persistence/entity/OutboxEventEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/common/infrastructure/persistence/repository/OutboxEventRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/GEMINI-core.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/README-core.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/application/usecase/MarkExecutableDoneUseCaseImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/exception/ExecutableNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/model/CoreCycle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/model/CoreExecutable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/model/ExecutableStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/model/ExecutionProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/port/in/MarkExecutableDoneUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/domain/port/out/ExecutableRepositoryPort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/in/event/ExecutableStatusChangedListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/in/web/CoreExecutableController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/CoreExecutablePersistenceAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreCycleEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreExecutableEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreExecutionProfileEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreProjectEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/entity/CoreTimeBlockEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/core/infrastructure/adapter/out/persistence/repository/SpringDataCoreExecutableRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/GEMINI-finance.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/README-finance.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/domain/model/FinTransaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/domain/model/Transaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/domain/port/in/RegisterTransactionUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/SpringDataFinanceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/entity/FinTransactionEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/finance/infrastructure/adapter/out/persistence/entity/FinanceTransactionEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/planner/GEMINI-planner.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/planner/README-planner.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/planner/application/usecase/AgendaPlannerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/prioritizer/GEMINI-prioritizer.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/prioritizer/README-prioritizer.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/prioritizer/application/usecase/ExecutablePriorityCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/GEMINI-sync.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/README-sync.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncResourceService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/domain/port/in/SyncResourceUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/ExternalSyncPort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncMappingRepositoryPort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncResourceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleCalendarEventDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleEventCreateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleEventUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleGenericResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderCreateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/SyncResourceController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/NotionWebhookController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/SyncController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/FileSystemSyncResourceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleCalendarSyncAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleSentinelSyncAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionSyncAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionPageRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionPageResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionProperty.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionQueryResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionWebhookPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/SyncMappingPersistenceAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/entity/SyncMappingEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/repository/SpringDataSyncMappingRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/config/notion/NotionProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Initial_Schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__Sync_Mappings.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V3__Extend_Core_Executable.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V4__Data_Model_Expansion.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sync-resources/create.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sync-resources/update.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/finance/domain/model/FinTransactionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/prioritizer/application/usecase/ExecutablePriorityCalculatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/CrossSystemSyncIntegrationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineIntegrationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleInboundDatabaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionSyncAdapterTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/integration/AppleToNotionSyncE2ETest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/integration/NotionToAppleSyncIntegrationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hyperbrain/sopfc/sync/integration/RealAppleIntegrationE2ETest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/sync-resources/create.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/sync-resources/update.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/GEMINI-sync.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/README-sync.md" beforeDir="false" afterPath="$PROJECT_DIR$/sync/README-sync.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sync/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncPersistenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncPersistenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncResourceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/util/SyncUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/util/SyncUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/in/SyncResourceUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/in/SyncResourceUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/ExternalSyncPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/ExternalSyncPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncMappingRepositoryPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncMappingRepositoryPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncResourceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncResourceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleCalendarEventDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleCalendarEventDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleEventCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleEventCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleEventUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleEventUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleGenericResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleGenericResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/common/dto/AppleReminderUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/SyncResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/SyncResourceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/event/ExecutableDeletedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/event/ExecutableDeletedListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/event/ExecutableStatusChangedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/event/ExecutableStatusChangedListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/event/SyncTriggerAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/event/SyncTriggerAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/NotionLegacyWebhookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/NotionLegacyWebhookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/NotionWebhookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/NotionWebhookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/SyncController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/SyncController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/FileSystemSyncResourceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/FileSystemSyncResourceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleCalendarSyncAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleSentinelSyncAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/apple/AppleSentinelSyncAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionSyncAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionSyncAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionPageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionPageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionPageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionQueryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionQueryResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionWebhookPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/dto/NotionWebhookPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/SyncMappingPersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/SyncMappingPersistenceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/entity/SyncMappingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/entity/SyncMappingEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/repository/SpringDataSyncMappingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/persistence/repository/SpringDataSyncMappingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/config/notion/NotionProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/config/notion/NotionProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionSyncAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/test/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/out/notion/NotionSyncAdapterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/test/resources/sync-resources/create.json" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/test/resources/sync-resources/create.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/src/test/resources/sync-resources/update.json" beforeDir="false" afterPath="$PROJECT_DIR$/sync/src/test/resources/sync-resources/update.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +246,24 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="verification" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hyperbrain-be" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hyperbrain-be" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hyperbrain-be" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -218,11 +284,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.Dockerfile.executor": "Run",
+    "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.kafka: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.zookeeper: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "Gradle.Build HyperBrain-be.executor": "Run",
     "Gradle.Build HyperBrainV2.executor": "Run",
     "Gradle.CrossSystemSyncIntegrationTest.shouldCreateMappingWhenAppleReminderArrives.executor": "Debug",
     "Gradle.Download Sources.executor": "Run",
-    "Gradle.HyperBrain-be [bootRun].executor": "Run",
+    "Gradle.HyperBrain-be [:app:bootRun].executor": "Run",
+    "Gradle.HyperBrain-be [bootRun].executor": "Debug",
     "Gradle.HyperBrain-be [bootTestRun].executor": "Run",
     "Gradle.HyperBrain-be [build].executor": "Run",
     "Gradle.HyperBrain-be [test].executor": "Run",
@@ -242,11 +314,38 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "Docker"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.HyperBrain-be [bootRun]">
-    <configuration name="HyperBrain-be [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+    <configuration name="CrossSystemSyncIntegrationTest.shouldCreateMappingWhenAppleReminderArrives" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":it:test" />
+            <option value="--tests" />
+            <option value="&quot;com.hyperbrain.sopfc.sync.application.usecase.CrossSystemSyncIntegrationTest.shouldCreateMappingWhenAppleReminderArrives&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="HyperBrain-be [:app:bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -257,7 +356,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="bootRun" />
+            <option value=":app:bootRun" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -271,113 +370,50 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="HyperBrain-be [bootTestRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootTestRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="HyperBrain-be [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
       <method v="2" />
     </configuration>
-    <configuration name="HyperBrain-be [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="hyperbrain-be" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="hyperbrain-be" />
-      <option name="filePath" />
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="SopfcApplication (3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="hyperbrain-be.app.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hyperbrain.sopfc.SopfcApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hyperbrain.sopfc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="docker-compose.yml.kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="kafka" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.HyperBrain-be [bootRun]" />
-        <item itemvalue="Gradle.HyperBrain-be [build]" />
-        <item itemvalue="Gradle.HyperBrain-be [test]" />
-        <item itemvalue="Gradle.HyperBrain-be [bootTestRun]" />
-        <item itemvalue="Spring Boot.SopfcApplication (3)" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Gradle.HyperBrain-be [:app:bootRun]" />
+        <item itemvalue="Gradle.CrossSystemSyncIntegrationTest.shouldCreateMappingWhenAppleReminderArrives" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -405,39 +441,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncMappingRepositoryPort.java</url>
           <line>8</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/it/src/test/java/com/hyperbrain/sopfc/sync/application/usecase/CrossSystemSyncIntegrationTest.java</url>
-          <line>78</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/infrastructure/adapter/in/web/AppleWebhookController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineService.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineService.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/application/usecase/SyncEngineService.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sync/src/main/java/com/hyperbrain/sopfc/sync/domain/port/out/SyncMappingRepositoryPort.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

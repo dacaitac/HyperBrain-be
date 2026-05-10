@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -27,7 +29,6 @@ public class SyncEngineService {
     private final SyncMappingRepositoryPort syncMappingRepo;
     private final SyncPersistenceService syncPersistenceService;
     private final OutboxPort outboxPort;
-    private final ObjectMapper objectMapper;
 
     @Transactional
     public void syncAll() {
@@ -49,87 +50,118 @@ public class SyncEngineService {
     @Transactional
     public void processExternalUpdate(String system, String externalId, CoreExecutable updatedData) {
         SyncContextHolder.setSource(system);
-        syncMappingRepo.findByExternalId(externalId, system).ifPresentOrElse(
-            mapping -> {
-                localRepo.findById(mapping.executableId()).ifPresentOrElse(local -> {
-                    String newChecksum = SyncUtils.calculateChecksum(updatedData);
-                    if (newChecksum.equals(mapping.lastKnownChecksum())) {
-                        log.info("⏭️ [EXTERNAL-UPDATE] No changes detected. Local Checksum matches Incoming ({}). Skipping.", newChecksum);
-                        return;
-                    }
-                    log.info("🔄 [EXTERNAL-UPDATE] Change detected! Old: {}, New: {}", mapping.lastKnownChecksum(), newChecksum);
+        
+        // Normalize external ID for consistent lookup
+        String normalizedId = "NOTION".equals(system) ? SyncUtils.normalizeNotionId(externalId) : externalId;
 
-                    CoreExecutable updatedLocal = local.toBuilder()
-                            .name(updatedData.getName())
-                            .description(updatedData.getDescription())
-                            .status(updatedData.getStatus())
-                            .startTime(updatedData.getStartTime())
-                            .applePriority(updatedData.getApplePriority())
-                            .externalUrl(updatedData.getExternalUrl())
-                            .build();
-                    
-                    syncPersistenceService.updateFullLinkAtomic(updatedLocal, updatedData, mapping);
-                }, () -> log.warn("⚠️ [EXTERNAL-UPDATE] Local item missing: {}", mapping.executableId()));
-            },
-            () -> syncPersistenceService.createFullLinkAtomic(updatedData, system, externalId)
+        syncMappingRepo.findByExternalId(normalizedId, system).ifPresentOrElse(
+            mapping -> updateExistingMapping(mapping, updatedData, system, normalizedId),
+            () -> searchAndLinkCandidate(updatedData, system, normalizedId)
         );
+    }
+
+    private void updateExistingMapping(SyncMapping mapping, CoreExecutable updatedData, String system, String normalizedId) {
+        localRepo.findById(mapping.executableId()).ifPresentOrElse(local -> {
+            CoreExecutable updatedLocal = applyExternalChanges(local, updatedData);
+
+            String newChecksum = SyncUtils.calculateChecksum(updatedLocal);
+            if (newChecksum.equals(mapping.lastKnownChecksum())) {
+                log.info("⏭️ [EXTERNAL-UPDATE] No functional changes for {} ({}). Checksum match. Skipping.", system, normalizedId);
+                return;
+            }
+            
+            log.info("🔄 [EXTERNAL-UPDATE] Change detected in {} ({}). Old Checksum: {}, New: {}", 
+                system, normalizedId, mapping.lastKnownChecksum(), newChecksum);
+            
+            syncPersistenceService.updateFullLinkAtomic(updatedLocal, updatedLocal, mapping);
+        }, () -> {
+            log.warn("⚠️ [EXTERNAL-UPDATE] Local item missing for mapping: {}. Re-creating link.", mapping.executableId());
+            syncPersistenceService.createFullLinkAtomic(updatedData, system, normalizedId);
+        });
+    }
+
+    private void searchAndLinkCandidate(CoreExecutable updatedData, String system, String normalizedId) {
+        log.info("🔍 [EXTERNAL-UPDATE] Mapping not found for {} in {}. Searching for existing candidates...", normalizedId, system);
+
+        List<CoreExecutable> candidates = localRepo.findByName(updatedData.getName());
+        
+        Optional<CoreExecutable> match = candidates.stream()
+            .filter(c -> !syncMappingRepo.findByExecutableId(c.getId(), "NOTION").isEmpty())
+            .findFirst();
+
+        if (match.isPresent()) {
+            CoreExecutable candidate = match.get();
+            log.info("🤝 [DEDUPLICATION] Matched existing Notion task '{}' (ID: {}). Linking to {} ID: {}", 
+                updatedData.getName(), candidate.getId(), system, normalizedId);
+            
+            syncPersistenceService.linkExistingAtomic(candidate, system, normalizedId);
+            
+            syncMappingRepo.findByExternalId(normalizedId, system).ifPresent(newMapping -> 
+                syncPersistenceService.updateFullLinkAtomic(candidate, updatedData, newMapping)
+            );
+        } else {
+            log.info("➕ [EXTERNAL-UPDATE] No suitable candidate found. Creating new link for: {}", updatedData.getName());
+            syncPersistenceService.createFullLinkAtomic(updatedData, system, normalizedId);
+        }
+    }
+
+    private CoreExecutable applyExternalChanges(CoreExecutable local, CoreExecutable external) {
+        return local.toBuilder()
+                .name(external.getName())
+                .description(external.getDescription())
+                .status(external.getStatus())
+                .startTime(external.getStartTime())
+                .endTime(external.getEndTime())
+                .isPlanned(external.isPlanned())
+                .impactScore(external.getImpactScore())
+                .energyDrain(external.getEnergyDrain())
+                .mentalLoad(external.getMentalLoad())
+                .estimatedMinutes(external.getEstimatedMinutes())
+                .applePriority(external.getApplePriority())
+                .externalUrl(external.getExternalUrl())
+                .sourceCalendar(external.getSourceCalendar())
+                .alarms(external.getAlarms())
+                .recurrence(external.getRecurrence())
+                .build();
     }
 
     @Transactional
     public void processLocalDelete(UUID executableId) {
         log.info("🗑️ [LOCAL-DELETE] Executable: {}", executableId);
         List<SyncMapping> mappings = syncMappingRepo.findAllByExecutableId(executableId);
-        
-        // Use a more explicit format for the payload
-        String payload = mappings.stream()
-                .map(m -> m.externalSystem() + ":" + m.externalId())
-                .collect(java.util.stream.Collectors.joining(","));
+        String payload = generateDeletionPayload(mappings);
 
         log.info("💾 [LOCAL-DELETE] Saving EXECUTABLE_DELETED to Outbox with mappings: {}", payload);
-        outboxPort.saveEvent(
-                "CORE_EXECUTABLE",
-                executableId.toString(),
-                "EXECUTABLE_DELETED",
-                payload,
-                "INTERNAL"
-        );
+        outboxPort.saveEvent("CORE_EXECUTABLE", executableId.toString(), "EXECUTABLE_DELETED", payload, "INTERNAL");
 
-        // Delete AFTER emitting event
         localRepo.delete(executableId);
-        for (SyncMapping mapping : mappings) {
-            syncMappingRepo.delete(mapping);
-        }
+        mappings.forEach(syncMappingRepo::delete);
     }
 
     @Transactional
     public void processExternalDelete(String system, String externalId) {
         log.info("🗑️ [EXTERNAL-DELETE-START] From {}: {}", system, externalId);
         SyncContextHolder.setSource(system);
-        try {
-            syncMappingRepo.findByExternalId(externalId, system).ifPresentOrElse(mapping -> {
-                log.info("🗑️ [EXTERNAL-DELETE] Local record linked to {}: {}. Local ID: {}", 
-                    system, externalId, mapping.executableId());
-                
-                List<SyncMapping> allMappings = syncMappingRepo.findAllByExecutableId(mapping.executableId());
-                String payload = allMappings.stream()
-                        .map(m -> m.externalSystem() + ":" + m.externalId())
-                        .collect(java.util.stream.Collectors.joining(","));
+        
+        syncMappingRepo.findByExternalId(externalId, system).ifPresentOrElse(mapping -> {
+            log.info("🗑️ [EXTERNAL-DELETE] Local record linked to {}: {}. Local ID: {}", 
+                system, externalId, mapping.executableId());
+            
+            List<SyncMapping> allMappings = syncMappingRepo.findAllByExecutableId(mapping.executableId());
+            String payload = generateDeletionPayload(allMappings);
 
-                log.info("💾 [EXTERNAL-DELETE] Saving EXECUTABLE_DELETED to Outbox with mappings: {}", payload);
-                outboxPort.saveEvent(
-                        "CORE_EXECUTABLE",
-                        mapping.executableId().toString(),
-                        "EXECUTABLE_DELETED",
-                        payload,
-                        system
-                );
+            log.info("💾 [EXTERNAL-DELETE] Saving EXECUTABLE_DELETED to Outbox with mappings: {}", payload);
+            outboxPort.saveEvent("CORE_EXECUTABLE", mapping.executableId().toString(), "EXECUTABLE_DELETED", payload, system);
 
-                // Delete AFTER emitting event
-                localRepo.delete(mapping.executableId());
-                syncMappingRepo.delete(mapping);
-            }, () -> log.warn("⚠️ [EXTERNAL-DELETE] No mapping found for external ID {} in system {}", externalId, system));
-        } finally {
-            // Cleared by caller
-        }
+            localRepo.delete(mapping.executableId());
+            syncMappingRepo.delete(mapping);
+        }, () -> log.warn("⚠️ [EXTERNAL-DELETE] No mapping found for external ID {} in system {}", externalId, system));
+    }
+
+    private String generateDeletionPayload(List<SyncMapping> mappings) {
+        return mappings.stream()
+                .map(m -> m.externalSystem() + ":" + m.externalId())
+                .collect(Collectors.joining(","));
     }
 }
+

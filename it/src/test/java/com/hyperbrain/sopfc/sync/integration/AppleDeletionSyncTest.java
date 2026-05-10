@@ -18,8 +18,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.util.UUID;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -115,16 +118,10 @@ public class AppleDeletionSyncTest {
 
         // 4. Verificar que en Notion ya no exista (o esté archivada)
         // La implementación actual de NotionSyncAdapter.pushDelete archiva la página
-        waitFor(() -> notionAdapter.isArchived(sharedNotionId), 20000, "Notion Archival");
+        await("Notion Archival").atMost(Duration.ofSeconds(20))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> notionAdapter.isArchived(sharedNotionId));
         log.info("✅ [TEST] Deletion successfully propagated to Notion.");
     }
-
-    private void waitFor(java.util.function.BooleanSupplier condition, int timeoutMs, String desc) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < timeoutMs) {
-            try { if (condition.getAsBoolean()) return; } catch (Exception ignored) {}
-            Thread.sleep(2000);
-        }
-        throw new AssertionError("Timeout esperando: " + desc);
-    }
 }
+

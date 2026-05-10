@@ -22,9 +22,15 @@ public class SyncUtils {
                 executable.getApplePriority(),
                 executable.getExternalUrl(),
                 executable.isPlanned(),
-                executable.getStartTime(), // Añadido para detectar cambios de fecha/hora
-                executable.getEndTime()    // Añadido para detectar cambios de rango
+                normalizeDate(executable.getStartTime()),
+                normalizeDate(executable.getEndTime())
         ));
+    }
+
+    private static java.time.OffsetDateTime normalizeDate(java.time.OffsetDateTime dt) {
+        if (dt == null) return null;
+        // Truncamos a segundos para evitar ruido de nanosegundos entre sistemas
+        return dt.withNano(0);
     }
 
     private static String normalizeString(String input) {

@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "finance_transactions")
+@Table(name = "finance_transactions", schema = "finance")
 @Getter
 @Setter
 @NoArgsConstructor

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name = "core_cycle")
+@Table(name = "core_cycle", schema = "core")
 @Getter
 @Setter
 @NoArgsConstructor

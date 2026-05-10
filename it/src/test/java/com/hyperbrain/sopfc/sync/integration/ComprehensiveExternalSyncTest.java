@@ -20,10 +20,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.UUID;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = SopfcApplication.class)
@@ -92,7 +95,10 @@ public class ComprehensiveExternalSyncTest {
         outboxScheduler.processOutbox();
 
         // Validar Apple
-        waitFor(() -> mappingRepository.findByExecutableIdAndExternalSystem(localId, "APPLE_REMINDERS").isPresent(), 10000, "Apple Mapping");
+        await("Apple Mapping").atMost(Duration.ofSeconds(10))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> mappingRepository.findByExecutableIdAndExternalSystem(localId, "APPLE_REMINDERS").isPresent());
+        
         sharedAppleId = mappingRepository.findByExecutableIdAndExternalSystem(localId, "APPLE_REMINDERS").get().getExternalId();
         
         JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
@@ -101,7 +107,10 @@ public class ComprehensiveExternalSyncTest {
         log.info("✅ [TEST] Verificado en Apple: {}", sharedAppleId);
 
         // Validar Notion
-        waitFor(() -> mappingRepository.findByExecutableIdAndExternalSystem(localId, "NOTION").isPresent(), 30000, "Notion Mapping");
+        await("Notion Mapping").atMost(Duration.ofSeconds(30))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> mappingRepository.findByExecutableIdAndExternalSystem(localId, "NOTION").isPresent());
+        
         sharedNotionId = mappingRepository.findByExecutableIdAndExternalSystem(localId, "NOTION").get().getExternalId();
         
         var notionResult = notionAdapter.fetchById(sharedNotionId);
@@ -125,17 +134,21 @@ public class ComprehensiveExternalSyncTest {
         triggerUpdateEvent("UPDATE_DATE");
 
         // Validar Apple
-        waitFor(() -> {
-            JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
-            return appleItem.has("date") && !appleItem.get("date").isNull();
-        }, 10000, "Apple Date Update");
+        await("Apple Date Update").atMost(Duration.ofSeconds(10))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> {
+                    JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
+                    return appleItem != null && appleItem.has("date") && !appleItem.get("date").isNull();
+                });
         log.info("✅ [TEST] Fecha actualizada en Apple.");
 
         // Validar Notion
-        waitFor(() -> {
-            var notionItem = notionAdapter.fetchById(sharedNotionId).get();
-            return notionItem.executable().getStartTime() != null;
-        }, 15000, "Notion Date Update");
+        await("Notion Date Update").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> {
+                    var notionItem = notionAdapter.fetchById(sharedNotionId).get();
+                    return notionItem.executable().getStartTime() != null;
+                });
         log.info("✅ [TEST] Fecha actualizada en Notion.");
     }
 
@@ -151,17 +164,21 @@ public class ComprehensiveExternalSyncTest {
         triggerUpdateEvent("DONE");
 
         // Validar Apple
-        waitFor(() -> {
-            JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
-            return appleItem.get("isCompleted").asBoolean();
-        }, 10000, "Apple Status Update");
+        await("Apple Status Update").atMost(Duration.ofSeconds(10))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> {
+                    JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
+                    return appleItem != null && appleItem.get("isCompleted").asBoolean();
+                });
         log.info("✅ [TEST] Status DONE en Apple.");
 
         // Validar Notion
-        waitFor(() -> {
-            var notionItem = notionAdapter.fetchById(sharedNotionId).get();
-            return notionItem.executable().getStatus() == ExecutableStatus.DONE;
-        }, 15000, "Notion Status Update");
+        await("Notion Status Update").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> {
+                    var notionItem = notionAdapter.fetchById(sharedNotionId).get();
+                    return notionItem.executable().getStatus() == ExecutableStatus.DONE;
+                });
         log.info("✅ [TEST] Status DONE en Notion.");
     }
 
@@ -179,17 +196,21 @@ public class ComprehensiveExternalSyncTest {
         triggerUpdateEvent("UPDATE_NAME");
 
         // Validar Apple
-        waitFor(() -> {
-            JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
-            return newName.equals(appleItem.get("title").asText());
-        }, 10000, "Apple Name Update");
+        await("Apple Name Update").atMost(Duration.ofSeconds(10))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> {
+                    JsonNode appleItem = appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().bodyToMono(JsonNode.class).block();
+                    return appleItem != null && newName.equals(appleItem.get("title").asText());
+                });
         log.info("✅ [TEST] Nombre actualizado en Apple.");
 
         // Validar Notion
-        waitFor(() -> {
-            var notionItem = notionAdapter.fetchById(sharedNotionId).get();
-            return newName.equals(notionItem.executable().getName());
-        }, 30000, "Notion Name Update");
+        await("Notion Name Update").atMost(Duration.ofSeconds(30))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> {
+                    var notionItem = notionAdapter.fetchById(sharedNotionId).get();
+                    return notionItem != null && newName.equals(notionItem.executable().getName());
+                });
         log.info("✅ [TEST] Nombre actualizado en Notion.");
     }
 
@@ -228,13 +249,5 @@ public class ComprehensiveExternalSyncTest {
         outboxRepository.saveAndFlush(outboxEvent);
         outboxScheduler.processOutbox();
     }
-
-    private void waitFor(java.util.function.BooleanSupplier condition, int timeoutMs, String desc) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < timeoutMs) {
-            try { if (condition.getAsBoolean()) return; } catch (Exception ignored) {}
-            Thread.sleep(2000);
-        }
-        throw new AssertionError("Timeout esperando: " + desc);
-    }
 }
+

@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: Task Prioritizer
+# 🧠 Contexto Task Prioritizer
 
 Este documento define el comportamiento específico del agente para el módulo `prioritizer`.
 
@@ -11,5 +11,5 @@ El módulo `prioritizer` es el motor matemático reactivo. Su responsabilidad es
 * **Reactividad:** No tiene BD propia; reacciona a eventos para actualizar `priority_score` en el Core.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-prioritizer.md|Prioritizer Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-prioritizer.md|Architecture]]

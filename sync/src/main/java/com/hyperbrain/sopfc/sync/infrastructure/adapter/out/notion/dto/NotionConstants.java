@@ -15,6 +15,7 @@ public final class NotionConstants {
     public static final String PROP_MENTAL_LOAD = "Mental Load";
     public static final String PROP_URL = "URL";
     public static final String PROP_EST_MIN = "Est. Min";
+    public static final String PROP_IMPORTANT = "Important";
     
     // Select/Status Names
     public static final String STATUS_NOT_STARTED = "Not started";
@@ -26,21 +27,21 @@ public final class NotionConstants {
     public static final String TYPE_HABIT = "Habit";
     public static final String TYPE_ACTIVITY = "Activity";
 
-    public static final String IMPACT_CRITICAL = "Crítico";
-    public static final String IMPACT_HIGH = "Alto";
-    public static final String IMPACT_MODERATE = "Moderado";
-    public static final String IMPACT_LOW = "Bajo";
-    public static final String IMPACT_IRRELEVANT = "Irrelevante";
+    public static final String IMPACT_CRITICAL = "Critical";
+    public static final String IMPACT_HIGH = "High";
+    public static final String IMPACT_MODERATE = "Moderate";
+    public static final String IMPACT_LOW = "Low";
+    public static final String IMPACT_IRRELEVANT = "Irrelevant";
 
-    public static final String ENERGY_INTENSE = "Intenso";
-    public static final String ENERGY_DEMANDING = "Exigente";
-    public static final String ENERGY_SUSTAINED = "Sostenido";
-    public static final String ENERGY_EXECUTION = "Ejecución";
-    public static final String ENERGY_AUTOMATIC = "Automático";
+    public static final String ENERGY_INTENSE = "Intense";
+    public static final String ENERGY_DEMANDING = "Demanding";
+    public static final String ENERGY_SUSTAINED = "Sustained";
+    public static final String ENERGY_EXECUTION = "Execution";
+    public static final String ENERGY_AUTOMATIC = "Automatic";
 
-    public static final String MENTAL_ABSTRACT = "Abstracto";
-    public static final String MENTAL_COMPLEX = "Complejo";
-    public static final String MENTAL_ANALYSIS = "Análisis";
-    public static final String MENTAL_FOCUS = "Foco";
-    public static final String MENTAL_ROUTINE = "Rutinario";
+    public static final String MENTAL_ABSTRACT = "Abstract";
+    public static final String MENTAL_COMPLEX = "Complex";
+    public static final String MENTAL_ANALYSIS = "Analysis";
+    public static final String MENTAL_FOCUS = "Focus";
+    public static final String MENTAL_ROUTINE = "Routine";
 }

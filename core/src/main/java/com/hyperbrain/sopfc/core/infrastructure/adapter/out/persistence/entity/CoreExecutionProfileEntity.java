@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "core_execution_profile")
+@Table(name = "core_execution_profile", schema = "core")
 @Getter
 @Setter
 @NoArgsConstructor

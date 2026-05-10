@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "fin_transaction")
+@Table(name = "fin_transaction", schema = "finance")
 @Getter
 @Setter
 @NoArgsConstructor

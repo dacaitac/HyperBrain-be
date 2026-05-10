@@ -18,9 +18,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.util.Map;
 import java.util.UUID;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -120,24 +123,18 @@ public class NotionDeletionSyncTest {
         outboxScheduler.processOutbox();
 
         // 4. Verificar que en Apple ya no exista (debería dar 404)
-        waitFor(() -> {
-            try {
-                appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().toBodilessEntity().block();
-                return false; // Sigue existiendo
-            } catch (org.springframework.web.reactive.function.client.WebClientResponseException.NotFound e) {
-                return true; // Borrado exitoso
-            }
-        }, 15000, "Apple Deletion Propagation");
+        await("Apple Deletion Propagation").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> {
+                    try {
+                        appleClient.get().uri("/items/{id}", sharedAppleId).retrieve().toBodilessEntity().block();
+                        return false; // Sigue existiendo
+                    } catch (org.springframework.web.reactive.function.client.WebClientResponseException.NotFound e) {
+                        return true; // Borrado exitoso
+                    }
+                });
 
         log.info("✅ [TEST] Notion deletion successfully propagated to Apple Reminders.");
     }
-
-    private void waitFor(java.util.function.BooleanSupplier condition, int timeoutMs, String desc) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < timeoutMs) {
-            try { if (condition.getAsBoolean()) return; } catch (Exception ignored) {}
-            Thread.sleep(2000);
-        }
-        throw new AssertionError("Timeout esperando: " + desc);
-    }
 }
+

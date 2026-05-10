@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: Core API
+# 🧠 Contexto Core API
 
 Este documento define el comportamiento específico del agente para el módulo `core`.
 
@@ -11,5 +11,5 @@ El módulo `core` actúa como el orquestador de estado central y gestor de grafo
 * **Aislamiento:** NO PUEDE depender de ningún otro dominio (`sync`, `cognitive`, etc.), excepto de `common`.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-core.md|Core API Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-core.md|Architecture]]

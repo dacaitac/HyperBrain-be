@@ -12,7 +12,7 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "cognitive_load")
+@Table(name = "cognitive_load", schema = "cognitive")
 @Getter
 @Setter
 @NoArgsConstructor

@@ -5,18 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hyperbrain.sopfc.common.domain.event.ExecutableDeletedEvent;
 import com.hyperbrain.sopfc.common.domain.event.ExecutableStatusChangedEvent;
+import com.hyperbrain.sopfc.common.infrastructure.adapter.out.kafka.KafkaEventPublisherAdapter;
 import com.hyperbrain.sopfc.common.infrastructure.persistence.entity.OutboxEventEntity;
 import com.hyperbrain.sopfc.common.infrastructure.persistence.repository.OutboxEventRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
-import java.util.UUID;
 
 @Slf4j
 @Component
@@ -25,7 +24,7 @@ import java.util.UUID;
 public class OutboxScheduler {
 
     private final OutboxEventRepository repository;
-    private final ApplicationEventPublisher eventPublisher;
+    private final KafkaEventPublisherAdapter kafkaPublisher;
     private final ObjectMapper objectMapper;
 
     @Scheduled(fixedDelay = 2000)
@@ -43,60 +42,15 @@ public class OutboxScheduler {
         if (currentEvent == null || currentEvent.isProcessed()) return;
 
         try {
-            if ("EXECUTABLE_STATUS_CHANGED".equals(currentEvent.getEventType()) || "EXECUTABLE_CREATED".equals(currentEvent.getEventType())) {
-                String rawPayload = currentEvent.getPayload();
-                if (rawPayload.startsWith("\"") && rawPayload.endsWith("\"") && rawPayload.length() > 2) {
-                    rawPayload = rawPayload.substring(1, rawPayload.length() - 1).replace("\\\"", "\"");
-                }
-                
-                StatusChangedPayload payload = objectMapper.readValue(rawPayload, StatusChangedPayload.class);
-                
-                String sourceSystem = currentEvent.getSourceSystem();
-                if (sourceSystem == null) sourceSystem = payload.getSourceSystem();
+            String topic = "hyperbrain." + currentEvent.getEventType().toLowerCase().replace("_", ".");
+            String key = currentEvent.getAggregateId();
+            String payload = currentEvent.getPayload();
+            String sourceSystem = currentEvent.getSourceSystem();
 
-                ExecutableStatusChangedEvent domainEvent = new ExecutableStatusChangedEvent(
-                        this,
-                        UUID.fromString(currentEvent.getAggregateId()),
-                        payload.getNewStatus(),
-                        sourceSystem
-                );
-                
-                log.info("📢 [OUTBOX] Publishing {} for aggregate {}. Source: {}", 
-                    currentEvent.getEventType(), currentEvent.getAggregateId(), sourceSystem);
-                eventPublisher.publishEvent(domainEvent);
-            } else if ("EXECUTABLE_DELETED".equals(currentEvent.getEventType())) {
-                String sourceSystem = currentEvent.getSourceSystem();
-                String rawPayload = currentEvent.getPayload();
-                
-                // Clean up string payload if it was saved with quotes (e.g. "\"NOTION:id\"")
-                if (rawPayload != null && rawPayload.startsWith("\"") && rawPayload.endsWith("\"") && rawPayload.length() > 2) {
-                    rawPayload = rawPayload.substring(1, rawPayload.length() - 1);
-                }
-
-                List<ExecutableDeletedEvent.MappingInfo> mappings = new java.util.ArrayList<>();
-                if (rawPayload != null && !rawPayload.isBlank()) {
-                    // It could be double escaped or have extra slashes if it was treated as a single JSON string
-                    rawPayload = rawPayload.replace("\\\"", ""); 
-
-                    for (String part : rawPayload.split(",")) {
-                        String[] pair = part.split(":", 2);
-                        if (pair.length == 2) {
-                            mappings.add(new ExecutableDeletedEvent.MappingInfo(pair[0].trim(), pair[1].trim()));
-                        }
-                    }
-                }
-
-                ExecutableDeletedEvent domainEvent = new ExecutableDeletedEvent(
-                        this,
-                        UUID.fromString(currentEvent.getAggregateId()),
-                        sourceSystem,
-                        mappings
-                );
-                
-                log.info("📢 [OUTBOX] Publishing EXECUTABLE_DELETED for aggregate {}. Source: {}. Mappings: {}", 
-                    currentEvent.getAggregateId(), sourceSystem, mappings.size());
-                eventPublisher.publishEvent(domainEvent);
-            }
+            log.info("📢 [OUTBOX] Relaying event {} to Kafka topic {}. Aggregate: {}. Source: {}", 
+                currentEvent.getEventType(), topic, key, sourceSystem);
+            
+            kafkaPublisher.publish(topic, key, payload, sourceSystem);
             
             currentEvent.setProcessed(true);
             repository.saveAndFlush(currentEvent);

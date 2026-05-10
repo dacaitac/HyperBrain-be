@@ -30,11 +30,13 @@ public class SyncTriggerAspect {
         if (!(savedExecutable instanceof CoreExecutable executable)) return;
 
         String source = SyncContextHolder.getSource();
-        log.info("📡 [SYNC-ASPECT] Change detected via Repository Port for {}. Source: {}", 
+        if (source == null || source.isBlank()) source = "LOCAL_SYSTEM";
+        
+        log.info("📡 [SYNC-ASPECT] Save detected for {}. Source: {}. Emitting event to Outbox.", 
             executable.getId(), source);
 
-        // We use "EXECUTABLE_CREATED" as a generic trigger. 
-        // The listener logic will decide if it needs to create or update in external systems.
+        // We use EXECUTABLE_STATUS_CHANGED as a generic "something changed" event
+        // that the Sync module knows how to handle.
         outboxPort.saveEvent(
             "CORE_EXECUTABLE",
             executable.getId().toString(),

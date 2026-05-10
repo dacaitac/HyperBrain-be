@@ -1,4 +1,4 @@
-# 🧠 Gemini Directives: Cognitive Engine
+# 🧠 Contexto Cognitive Engine
 
 Este documento define el comportamiento específico del agente para el módulo `cognitive`.
 
@@ -11,5 +11,5 @@ El motor cognitivo actúa como el Gatekeeper de la salud mental y el gestor del 
 * **Regresión N-1:** Si el usuario falla en Active Recall reiteradamente, invocar diagnóstico de bases conceptuales antes de continuar.
 
 ## 3. Guía de Navegación Contextual
-* Grafo de Geminis: [[../GEMINI.md|SOPFC Root Context]]
-* Readme Local: [[README-cognitive.md|Cognitive Engine Architecture]]
+* Ancla superior: [[../GEMINI|Backend Root Context]]
+* Readme Local: [[README-cognitive.md|Architecture]]

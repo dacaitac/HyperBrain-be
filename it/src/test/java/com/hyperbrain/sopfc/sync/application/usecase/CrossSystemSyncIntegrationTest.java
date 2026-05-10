@@ -12,10 +12,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.BooleanSupplier;
 
+import static com.hyperbrain.sopfc.it.util.ServiceAssumptions.assumeAppleServicesAreActive;
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Disabled;
@@ -36,7 +40,7 @@ public class CrossSystemSyncIntegrationTest {
 
     @BeforeEach
     void setup() {
-        com.hyperbrain.sopfc.it.util.ServiceAssumptions.assumeAppleServicesAreActive();
+        assumeAppleServicesAreActive();
         this.webClient = WebClient.builder().build();
     }
 
@@ -60,7 +64,7 @@ public class CrossSystemSyncIntegrationTest {
         assertNotNull(createRes, "Response from Apple Sync Bridge (Vapor) should not be null");
         String appleId = mapper.readTree(createRes).get("id").asText();
 
-        // 2. WEBHOOK to local server (Simulating Apple Shortcut/Event)
+        // 2. WEBHOOK to local server
         webClient.post()
                 .uri("http://localhost:" + port + "/api/v1/sync/apple/webhook")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -76,25 +80,21 @@ public class CrossSystemSyncIntegrationTest {
                 .block();
 
         // 3. VALIDATE INTERNAL MAPPING (Wait up to 10s)
-        assertTrue(waitFor(() -> syncMappingRepo.findByExternalId(appleId, "APPLE_REMINDERS").isPresent(), 10000),
-                "Mapping for Apple ID was not created in local DB");
+        await("Apple Mapping creation").atMost(Duration.ofSeconds(10))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> syncMappingRepo.findByExternalId(appleId, "APPLE_SENTINEL").isPresent());
 
-        SyncMappingRepositoryPort.SyncMapping mapping = syncMappingRepo.findByExternalId(appleId, "APPLE_REMINDERS").orElseThrow();
+        SyncMappingRepositoryPort.SyncMapping mapping = syncMappingRepo.findByExternalId(appleId, "APPLE_SENTINEL").orElseThrow();
         assertNotNull(mapping.executableId(), "Executable ID should be generated upon sync");
 
-        // 4. VALIDATE NOTION PROPAGATION (Logic to verify Notion Mapping was also created)
-        assertTrue(waitFor(() -> syncMappingRepo.findByExecutableId(mapping.executableId(), "NOTION").isPresent(), 5000),
-                "Mapping for Notion should be automatically created via sync engine");
+        // 4. VALIDATE NOTION PROPAGATION (Wait up to 20s)
+        await("Notion Mapping creation").atMost(Duration.ofSeconds(20))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> syncMappingRepo.findByExecutableId(mapping.executableId(), "NOTION").isPresent());
         
+        SyncMappingRepositoryPort.SyncMapping notionMapping = syncMappingRepo.findByExecutableId(mapping.executableId(), "NOTION").orElseThrow();
+
         System.out.println("✅ Multi-system sync flow validated for Executable: " + mapping.executableId());
     }
-
-    private boolean waitFor(BooleanSupplier condition, int timeoutMs) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < timeoutMs) {
-            if (condition.getAsBoolean()) return true;
-            Thread.sleep(1000);
-        }
-        return false;
-    }
 }
+

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,7 @@ public class NotionSyncAdapter implements ExternalSyncPort {
     private final NotionProperties notionProperties;
     private final String tasksDbId;
     private final ObjectMapper objectMapper;
+    private static final ZoneId BOGOTA_ZONE = ZoneId.of("America/Bogota");
 
     public NotionSyncAdapter(WebClient.Builder webClientBuilder, NotionProperties notionProperties, ObjectMapper objectMapper) {
         this.notionProperties = notionProperties;
@@ -48,25 +50,34 @@ public class NotionSyncAdapter implements ExternalSyncPort {
     public Optional<ExternalSyncResult> fetchById(String externalId) {
         String normalizedId = SyncUtils.normalizeNotionId(externalId);
         log.info("🔍 [NOTION-FETCH] Fetching page: {}", normalizedId);
-        return webClient.get()
-                .uri("/pages/{pageId}", normalizedId)
-                .retrieve()
-                .bodyToMono(NotionPageResponse.class)
-                .filter(response -> !response.isArchived())
-                .map(response -> new ExternalSyncResult(toDomain(response), SyncUtils.normalizeNotionId(response.getId())))
-                .blockOptional();
+        try {
+            return webClient.get()
+                    .uri("/pages/{pageId}", normalizedId)
+                    .retrieve()
+                    .bodyToMono(NotionPageResponse.class)
+                    .filter(response -> !response.isArchived())
+                    .map(response -> new ExternalSyncResult(toDomain(response), SyncUtils.normalizeNotionId(response.getId())))
+                    .blockOptional();
+        } catch (Exception e) {
+            log.warn("⚠️ [NOTION-FETCH] Error fetching page {}: {}. Assuming archived/deleted.", normalizedId, e.getMessage());
+            return Optional.empty();
+        }
     }
 
     public boolean isArchived(String externalId) {
         String normalizedId = SyncUtils.normalizeNotionId(externalId);
-        return webClient.get()
-                .uri("/pages/{pageId}", normalizedId)
-                .retrieve()
-                .bodyToMono(NotionPageResponse.class)
-                .map(NotionPageResponse::isArchived)
-                .onErrorReturn(true)
-                .blockOptional()
-                .orElse(true);
+        try {
+            return Boolean.TRUE.equals(webClient.get()
+                    .uri("/pages/{pageId}", normalizedId)
+                    .retrieve()
+                    .bodyToMono(NotionPageResponse.class)
+                    .map(NotionPageResponse::isArchived)
+                    .onErrorReturn(true)
+                    .block());
+        } catch (Exception e) {
+            log.warn("⚠️ [NOTION-FETCH] Error checking status for {}: {}. Assuming archived/deleted.", normalizedId, e.getMessage());
+            return true;
+        }
     }
 
     @Override
@@ -177,6 +188,13 @@ public class NotionSyncAdapter implements ExternalSyncPort {
             end = parseNotionDate(dateProp.getDate().getEnd());
         }
 
+        // Mapping Apple Priority back if it was set via "Important"
+        Integer applePriority = null;
+        NotionProperty importantProp = props.get(PROP_IMPORTANT);
+        if (importantProp != null && Boolean.TRUE.equals(importantProp.getCheckbox())) {
+            applePriority = 1; // High priority in Apple
+        }
+
         return CoreExecutable.builder()
                 .name(name)
                 .description(description)
@@ -190,6 +208,7 @@ public class NotionSyncAdapter implements ExternalSyncPort {
                 .startTime(start)
                 .endTime(end)
                 .isPlanned(start != null)
+                .applePriority(applePriority)
                 .build();
     }
 
@@ -307,9 +326,10 @@ public class NotionSyncAdapter implements ExternalSyncPort {
         if (dateStr == null) return null;
         try {
             if (dateStr.length() == 10) {
-                return java.time.LocalDate.parse(dateStr).atStartOfDay().atOffset(java.time.ZoneOffset.UTC);
+                // For date-only strings, assume Bogota start of day
+                return java.time.LocalDate.parse(dateStr).atStartOfDay(BOGOTA_ZONE).toOffsetDateTime();
             }
-            return OffsetDateTime.parse(dateStr);
+            return OffsetDateTime.parse(dateStr).atZoneSameInstant(BOGOTA_ZONE).toOffsetDateTime();
         } catch (Exception e) { return null; }
     }
 
@@ -319,6 +339,13 @@ public class NotionSyncAdapter implements ExternalSyncPort {
         props.put(PROP_STATUS, NotionProperty.status(mapDomainStatusToNotion(executable.getStatus())));
         props.put(PROP_COMPLETE, NotionProperty.checkbox(executable.getStatus() == ExecutableStatus.DONE));
         props.put(PROP_TYPE, NotionProperty.select(mapDomainTypeToNotion(executable.getType())));
+
+        // Priority Mapping: High priority (1-4) in Apple marks "Important" in Notion
+        if (executable.getApplePriority() != null && executable.getApplePriority() > 0 && executable.getApplePriority() <= 4) {
+            props.put(PROP_IMPORTANT, NotionProperty.checkbox(true));
+        } else {
+            props.put(PROP_IMPORTANT, NotionProperty.checkbox(false));
+        }
 
         if (executable.getDescription() != null && !executable.getDescription().isBlank()) {
             props.put(PROP_DESCRIPTION, NotionProperty.richText(executable.getDescription()));
@@ -339,8 +366,25 @@ public class NotionSyncAdapter implements ExternalSyncPort {
             props.put(PROP_EST_MIN, NotionProperty.number(executable.getEstimatedMinutes().doubleValue()));
         }
         if (executable.getStartTime() != null) {
-            String start = executable.getStartTime().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-            String end = executable.getEndTime() != null ? executable.getEndTime().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME) : null;
+            // Convert to Bogota timezone before sending to Notion
+            OffsetDateTime bogotaStart = executable.getStartTime().atZoneSameInstant(BOGOTA_ZONE).toOffsetDateTime();
+            
+            String start;
+            if (bogotaStart.getHour() == 0 && bogotaStart.getMinute() == 0 && bogotaStart.getSecond() == 0) {
+                start = bogotaStart.toLocalDate().toString(); // YYYY-MM-DD
+            } else {
+                start = bogotaStart.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+            }
+            
+            String end = null;
+            if (executable.getEndTime() != null) {
+                OffsetDateTime bogotaEnd = executable.getEndTime().atZoneSameInstant(BOGOTA_ZONE).toOffsetDateTime();
+                if (bogotaEnd.getHour() == 0 && bogotaEnd.getMinute() == 0 && bogotaEnd.getSecond() == 0) {
+                    end = bogotaEnd.toLocalDate().toString();
+                } else {
+                    end = bogotaEnd.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+                }
+            }
             props.put(PROP_DATE, NotionProperty.date(start, end));
         }
         return props;

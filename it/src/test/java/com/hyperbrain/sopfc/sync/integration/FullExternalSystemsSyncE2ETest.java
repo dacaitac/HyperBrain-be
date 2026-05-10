@@ -20,9 +20,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import org.awaitility.Awaitility;
+import java.time.Duration;
 import java.util.Map;
 import java.util.UUID;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -78,13 +81,18 @@ public class FullExternalSystemsSyncE2ETest {
                         "id", sharedAppleId, "title", testTitle, "changeType", "CREATE"
                 )))).andExpect(status().isAccepted());
 
-        waitFor(() -> mappingRepository.findByExternalIdAndExternalSystem(sharedAppleId, "APPLE_REMINDERS").isPresent(), 5000, "Mapping");
+        await("Mapping creation").atMost(Duration.ofSeconds(5))
+                .pollInterval(Duration.ofSeconds(1))
+                .until(() -> mappingRepository.findByExternalIdAndExternalSystem(sharedAppleId, "APPLE_REMINDERS").isPresent());
+
         UUID localId = mappingRepository.findByExternalIdAndExternalSystem(sharedAppleId, "APPLE_REMINDERS").get().getExecutableId();
 
         outboxScheduler.processOutbox();
 
-        waitFor(() -> mappingRepository.findAllByExecutableId(localId).stream()
-                .anyMatch(m -> m.getExternalSystem().equals("NOTION")), 15000, "Notion Propagation");
+        await("Notion propagation").atMost(Duration.ofSeconds(15))
+                .pollInterval(Duration.ofSeconds(2))
+                .until(() -> mappingRepository.findAllByExecutableId(localId).stream()
+                        .anyMatch(m -> m.getExternalSystem().equals("NOTION")));
         
         sharedNotionId = mappingRepository.findAllByExecutableId(localId).stream()
                 .filter(m -> m.getExternalSystem().equals("NOTION")).findFirst().get().getExternalId();
@@ -116,13 +124,5 @@ public class FullExternalSystemsSyncE2ETest {
         assertTrue(notionAdapter.isArchived(sharedNotionId), "Residual data in Notion");
         log.info("✅ Cleanup verified.");
     }
-
-    private void waitFor(java.util.function.BooleanSupplier condition, int timeoutMs, String desc) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < timeoutMs) {
-            try { if (condition.getAsBoolean()) return; } catch (Exception ignored) {}
-            Thread.sleep(2000);
-        }
-        throw new AssertionError("Timeout: " + desc);
-    }
 }
+
